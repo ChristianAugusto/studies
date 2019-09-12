@@ -1,8 +1,7 @@
 $.ajax({
     type : "GET",
-    dataType : "http://localhost:3000/",
-    url : "URL",
+    url : "http://localhost:3000/",
     success: function(data){
-        console.log(data);
+        document.getElementById('teste').textContent = data.message;
     }
 });
