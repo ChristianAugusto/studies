@@ -1,0 +1,6 @@
+//Exclui a tabela e os dados
+DROP TABLE table_name;
+
+
+//Exclui os dados
+TRUNCATE TABLE table_name;
