@@ -64,5 +64,22 @@ export default `
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
+
+      &-button {
+         padding: 10px;
+         border-radius: 5px;
+         border: 0;
+         background: #da552f;
+         font-size: 16px;
+         font-weight: 900;
+         color: #ffffff;
+
+         &:hover {
+            opacity: 0.7;
+         }
+         &[disabled] {
+            opacity: 0.5;
+         }
+      }
    }
 `;

@@ -1,13 +1,9 @@
 
 import React, { Component } from "react";
 
-/* RESET CSS */
-import "./reset/reset.scss";
-
-
 /* COMPONENTS */
-import Header from "./components/Header/index";
-import Shelf from "./components/Shelf/index";
+import Header from "./components/General/Header/index";
+import Shelf from "./components/Category/Shelf/index";
 
 
 export default props => (
