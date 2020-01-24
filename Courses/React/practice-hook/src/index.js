@@ -20,6 +20,7 @@ import global from "./global/index";
 
 /* PAGES */
 import ShelfClass from "./components/ShelfClass";
+import ShelfHook from "./components/ShelfHook";
 
 document.addEventListener("DOMContentLoaded", () => {
   global.init();
@@ -27,8 +28,8 @@ document.addEventListener("DOMContentLoaded", () => {
   render((
     <BrowserRouter>
       <Switch>
-        <Route exact path="/shelf-hook" component={ShelfClass} />
         <Route exact path="/shelf-class" component={ShelfClass} />
+        <Route exact path="/shelf-hook" component={ShelfHook} />
       </Switch>
     </BrowserRouter>
   ), document.getElementById("app"));
