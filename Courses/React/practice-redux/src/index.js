@@ -19,7 +19,7 @@ import {
 import global from "./global/index";
 
 /* APP */
-import App from "./components/App";
+import App from "./App";
 
 
 document.addEventListener("DOMContentLoaded", () => {
