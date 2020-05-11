@@ -1,0 +1,21 @@
+﻿pip --help  ->  lista comandos possíveis
+pip --list  ->  lista as dependências
+pip install lib_name    ->  instala uma dependência
+
+pip freeze  ->  lista as dependências nesses formato: dependência=versão
+pip freeze > requirements.txt  ->  lista as dependências em um arquivo
+
+
+
+Virual:
+
+[Criar]
+python -m venv .venv
+.venv\Scripts\activate
+python -m pip install --upgrade pip
+pip install lib_name
+...
+pip freeze > requirements.txt
+
+[Baixar]
+pip install -r requirements.txt
