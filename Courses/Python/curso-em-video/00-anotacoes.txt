@@ -1,4 +1,0 @@
-Python	 é	 uma	 linguagem	 de	 programação	 interpretada,	 orientada	 a	 objetos,	 de	 alto	 nível	 e	 com
-semântica	dinâmica.	A	simplicidade	do	Python	reduz	a	manutenção	de	um	programa.	Python	suporta
-módulos	e	pacotes,	que	encoraja	a	programação	modularizada	e	reuso	de	códigos.
-

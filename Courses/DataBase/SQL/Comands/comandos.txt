@@ -1,9 +1,0 @@
-SELECT
-
-SELECT * FROM table;    <-  Péssima prática
-
-SELECT column FROM table;
-
-SELECT DISTINCT column FROM table;
-
-SELECT COUNT(DISTINCT column) FROM table;   <- Conta quantos elementos diferentes existem na coluna

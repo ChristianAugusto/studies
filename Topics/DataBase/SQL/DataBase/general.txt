@@ -1,0 +1,14 @@
+//CREATE DATABASE
+CREATE DATABASE databasename;
+
+
+
+
+//DELETE DATABASE
+DROP DATABASE databasename;
+
+
+
+
+//BACKUP DATABASE
+BACKUP DATABASE databasename TO DISK = 'file_path';

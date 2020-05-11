@@ -1,0 +1,4 @@
+SELECT column1, column2 FROM table_name ORDER BY column1, column2 ASC|DESC;
+
+SELECT * FROM table ORDER BY column1, column2;
+//Ordenar os resultados alfabeticamente primeiro pela coluna1 e depois coluna2

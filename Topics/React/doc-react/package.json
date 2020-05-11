@@ -1,0 +1,37 @@
+{
+  "name": "doc-react",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@testing-library/jest-dom": "4.2.4",
+    "@testing-library/react": "9.3.2",
+    "@testing-library/user-event": "7.1.2",
+    "react": "16.12.0",
+    "react-app-polyfill": "1.0.5",
+    "react-dom": "16.12.0",
+    "react-scripts": "3.3.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "es6-promise": "4.2.8",
+    "js-polyfills": "0.1.42",
+    "node-sass": "4.13.1",
+    "react-router-dom": "5.1.2",
+    "regenerator-runtime": "0.13.3",
+    "styled-components": "5.0.0"
+  }
+}

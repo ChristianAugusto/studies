@@ -1,1 +1,0 @@
-console.log("Criando primeiro Programa");
