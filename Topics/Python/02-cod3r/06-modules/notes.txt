@@ -1,0 +1,1 @@
+Todo pacote precisa de um arquivo __init__.py
