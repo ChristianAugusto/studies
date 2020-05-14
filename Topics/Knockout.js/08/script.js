@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
             items: ko.observable([]),
             subTotal: ko.observable('R$ 0,00'),
             removeItem({ id, price }) {
-                const oldCart = [...self.cart.items()]
+                const oldCart = [...self.cart.items()] // Copying actual cart to a new array
 
                 const newCart = oldCart.filter(item => item.id != id)
 
