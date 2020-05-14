@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Knockout</title>
+    </head>
+    <body>
+
+        <form id="form">
+            <label>
+                Nome:
+                <!-- <input type="text" class="name" data-bind="value: name" /> -->
+                <input type="text" class="name" data-bind="textInput: name" /> <!-- textInput veio versão > 3-->
+            </label>
+            <label>
+                Sobrenome:
+                <!-- <input type="text" class="last-name" data-bind="value: lastName" /> -->
+                <input type="text" class="last-name" data-bind="textInput: lastName" /> <!-- textInput veio versão > 3-->
+            </label>
+        </form>
+
+        <div id="visor">
+            <div>
+                Nome:
+                <p class="name" data-bind="text: name"></p>
+            </div>
+            <div>
+                Sobrenome:
+                <p class="last-name" data-bind="text: lastName"></p>
+            </div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"></script>
+        <script src="./script.js"></script>
+    </body>
+</html>

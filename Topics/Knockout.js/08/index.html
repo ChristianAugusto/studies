@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Knockout</title>
+
+        <style>
+            #app {
+                width: 50%;
+                margin: 0 auto;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        </style>
+    </head>
+    <body>
+
+        <div id="app">
+            <!-- ko with: shelf -->
+            <ul class="shelf" data-bind="foreach: products">
+                <li class="product-item">
+                    <div class="product-item__info">
+                        <p><span data-bind="text: name"></span></span></p>
+                        <p><span data-bind="text: price"></span></span></p>
+                    </div>
+                    <div class="product-item__actions">
+                        <button data-bind="click: $parent.sendToCart">Send to cart</button>
+                    </div>
+                </li>
+            </ul>
+            <!-- /ko -->
+
+            <!-- ko with: cart -->
+            <div class="cart">
+                <ul class="cart__items" data-bind="foreach: items">
+                    <li class="product-item">
+                        <div class="product-item__info">
+                            <p><span data-bind="text: name"></span></span></p>
+                            <p><span data-bind="text: price"></span></span></p>
+                        </div>
+                        <button class="product-item__remove" data-bind="click: $parent.removeItem">X</button>
+                    </li>
+                </ul>
+                <p class="cart__subtotal" data-bind="text: subTotal"></p>
+            </div>
+            <!-- /ko -->
+        </div>
+
+        <button data-bind="click: getProducts">Get products</button>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"></script>
+        <script src="./script.js"></script>
+    </body>
+</html>

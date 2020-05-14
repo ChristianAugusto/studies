@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+    <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Knockout</title>
+    </head>
+    <body>
+        <div class="app">
+            <select id="breeds" data-bind="foreach: breeds">
+                <option data-bind="text: breedName"></option>
+            </select>
+            <div id="visor" data-bind="text: breedActive"></div>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/knockout/3.5.0/knockout-min.js"></script>
+        <script src="./script.js"></script>
+    </body>
+</html>
