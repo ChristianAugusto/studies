@@ -1,0 +1,17 @@
+env <- mostra todas as variáveis de ambiente do usuário
+echo $variavel <- mostra o valor dessa variável de ambiente
+env | grep variavel <- mostra a variável e seu valor
+
+
+criar:
+    variavel=valor
+    export variavel <- exporta uma variável para global (apenas no shell atual)
+    fruta=uva
+
+adicionar path:
+    PATH=$PATH:/diretorio
+
+
+sudo nano /etc/bash.bashrc
+escrever no arquivo:
+    export variavel="valor"

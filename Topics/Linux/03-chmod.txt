@@ -1,0 +1,42 @@
+ls -l  <- vai mostrar as permissões de arquivos
+ls -la <- vai mostrar as permissões de todos arquivos (ocultos inclusos)
+
+Permissões:
+    Primeira letra:
+        d = diretório
+        l = link
+        - = arquivo
+        c = arquivo de caracter
+        b = arquivo de bloco
+    r = leitura
+    w = escrita
+    x = execução
+    - = sem permissão
+
+            Proprietário    Grupo   Outros
+rwxrwxrwx ->    rwx          rwx     rwx
+
+
+
+chmod <- altera as permissões de arquivos e diretórios
+
+Octal
+    rwx
+    111 = 7
+
+    --x
+    001 = 1
+
+    -w-
+    010 = 2
+
+    r--
+    100 = 4
+
+    rw-
+    110 = 6
+
+
+    Sintaxe: chmode <permissões> <arquivo ou diretório>
+    chmod 700 arquivo.extensao
+    

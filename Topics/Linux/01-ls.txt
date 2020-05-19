@@ -1,0 +1,17 @@
+ls     <- lista o diretório, um atalho para ls .
+ls <parâmetro(s) em sigla>
+    -a  <- mostra todos os arquivos, incluindo ocultos
+    -l  <- mostra permissões de arquivos não ocultos
+    -la <- mostra permissões de todos os arquivos
+    -lh <- mostra permissões de arquivos não ocultos e seus tamanhos de maneira formatada
+    --help -< lista possíveis comandos para ls
+ls <caminho> <parâmetro(s) em sigla>
+Obs: nas permissões:
+    d = diretório
+    l = link
+    - = arquivo
+    c = arquivo de caracter
+    b = arquivo de bloco
+    r = leitura
+    w = escrita
+    x = execução
