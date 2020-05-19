@@ -3,3 +3,4 @@ from math import pi, sqrt # importa apenas o pi
 
 print(pi)
 print(sqrt(4))
+print(sqrt(82))
