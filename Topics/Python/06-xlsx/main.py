@@ -19,4 +19,4 @@ worksheet = wb.worksheets[0]
 
 for row_cells in worksheet.iter_rows():
     for cell in row_cells:
-        print(f'{cell}: cell.value={cell.value}')
+        print(f'cell.value = {cell.value}')
