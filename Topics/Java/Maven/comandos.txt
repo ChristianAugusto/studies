@@ -1,0 +1,9 @@
+https://medium.com/@andgomes/criando-um-projeto-maven-simples-a2ad88b25e78
+
+mvn archetype:generate -DgroupId=dominio -DartifactId=nome-do-projeto -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+/*EXEMPLO*/
+mvn archetype:generate -DgroupId=com.christian -DartifactId=project-1 -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+/*EXEMPLO*/
+
+Obs: O maven já cria a pasta com o nome do artifactId no projeto
