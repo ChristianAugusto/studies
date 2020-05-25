@@ -3,15 +3,22 @@ echo $variavel <- mostra o valor dessa variável de ambiente
 env | grep variavel <- mostra a variável e seu valor
 
 
-criar:
-    variavel=valor
-    export variavel <- exporta uma variável para global (apenas no shell atual)
-    fruta=uva
+
+/etc/bash.bashrc = arquivo de configuração do sistema, é executado sempre que abre o terminal para dizer comportamentos do terminal.
+
+/etc/environment = arquivo dedicado a variáveis do sistema
+
+/home/christian/.bashrc = arquivo dedicado a variáveis do usuário
+
+
 
 adicionar path:
     PATH=$PATH:/diretorio
 
 
 sudo nano /etc/bash.bashrc
-escrever no arquivo:
+escrever no arquivo environment:
+    variavel="valor"
+
+escrever no arquivo bash:
     export variavel="valor"
