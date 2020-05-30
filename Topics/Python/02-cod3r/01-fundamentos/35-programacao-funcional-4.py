@@ -1,6 +1,7 @@
 
 
 def dobrar(_num):
+    print(_num)
     return _num * 2
 
 

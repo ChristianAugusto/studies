@@ -1,15 +1,16 @@
 
 
-def dobrar(_num):
-    return _num * 2
+def filtrar_pares(_num):
+    return _num % 2 == 0
 
 
 
 if __name__ == '__main__':
     lista = [1, 2, 3, 4, 5, 6]
 
-    dobros1 = list( map(dobrar, lista) )
-    dobros2 = tuple( map(dobrar, lista) )
+    filtrado = filter(filtrar_pares, lista)
+    print(list(filtrado))
+    print(tuple(filtrado)) # será vazio
 
-    print(dobros1)
-    print(dobros2)
+    filtrado = filter(filtrar_pares, lista)
+    print(tuple(filtrado))
