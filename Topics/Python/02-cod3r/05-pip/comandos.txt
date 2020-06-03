@@ -7,10 +7,10 @@ pip freeze > requirements.txt  ->  lista as dependências em um arquivo
 
 
 
-Virual:
+Virtual:
 
 [Criar]
-python -m venv .venv
+python -m venv .venv [pip install virtualenv;virtualenv .venv]
 
 Linux:
     source .venv/bin/activate
@@ -25,5 +25,7 @@ pip freeze > requirements.txt
 [Baixar]
 pip install -r requirements.txt
 
+[Desinstalar]
+pip uninstall -r requirements.txt
 
 deactivate
