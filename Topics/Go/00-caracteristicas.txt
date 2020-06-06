@@ -1,0 +1,19 @@
+• Eficiente
+    — Standard library é déis
+    — Multiplataforma.
+    — Garbage collection (lightning fast!)
+    — Cross-compile.
+
+• Fácil de usar
+    — É uma linguagem compilada, de tipagem forte e estática,
+    — Tem pouquíssimas palavras reservadas, que vamos aprender todas no curso, ou seja, é muito de boas de aprender
+    — Só sobe nas listas de popularidade
+    • Killer feature: Em 2006, logo após o primeiro dual core. Thread: 1mb. Goroutine: 2kb.
+    • É massa!
+
+• Quando usar Go?
+    — Escala
+    — Seviços web, redes, servers (machine learning, image processing, crypto, ...)
+    — Quando precisar de uma lingaugem rápida, simples, fácil de aprender, e fácil de usar.
+    
+• Usa em: APIs, CLIs, microservices, libraries/framework, processamento de dados, ... É a base dos serviços de cloud e orquestração de containers.
