@@ -1,0 +1,7 @@
+version: '3'
+services:
+    teste-compose:
+        image: python:3.6.8
+        volumes:
+            - ./dev:/teste-compose/dev
+        command: bash -c "cd /teste-compose/dev && python main.py"

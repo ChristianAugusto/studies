@@ -1,0 +1,16 @@
+version: '3.1'
+services:
+    mysqlsrv:
+        image: mysql:8.0.20
+        environment:
+            MYSQL_ROOT_PASSWORD: "12345678"
+            MYSQL_DATABASE: "python-mysql"
+        ports:
+            - "3306:3306"
+        volumes:
+            - ./mysql:/var/lib/mysql
+    teste-compose:
+        image: python:3.6.8
+        volumes:
+            - ./dev:/teste-compose/dev
+        command: bash -c "cd /teste-compose/dev && python main.py"
