@@ -1,0 +1,2 @@
+- GET products by category 
+    (id, name, price, qtd_stock, category_id)

@@ -1,0 +1,22 @@
+{
+  "name": "burger-king",
+  "version": "1.0.0",
+  "description": "Website Ecommerce Burger King Fast Foods",
+  "main": "pages/index.js",
+  "author": "Christian Augusto Martins dos Santos Barros",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "babel-plugin-module-resolver": "^4.0.0",
+    "babel-plugin-styled-components": "^1.10.7",
+    "isomorphic-fetch": "^2.2.1",
+    "next": "^9.4.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.1.1"
+  }
+}

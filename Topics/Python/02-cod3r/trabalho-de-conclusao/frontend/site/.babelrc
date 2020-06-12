@@ -1,0 +1,27 @@
+{
+    "presets": ["next/babel"],
+    "plugins": [
+        [
+            "module-resolver",
+            {
+                "root": ["."],
+                "alias": {
+                    "@components": "./src/components",
+                    "@Layout": "./src/components/Layout.js",
+                    "@pages": "./src/components",
+                    "@configs": "./src/configs",
+                    "@storeDefaults": "./src/configs/store_defaults.js",
+                    "@mixins": "./src/utils/mixins.js"
+                }
+            }
+        ],
+        [
+            "styled-components",
+            {
+                "ssr": true,
+                "displayName": true,
+                "preprocess": false
+            }
+        ]
+    ]
+}
