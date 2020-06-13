@@ -1,11 +1,13 @@
 import React from 'react';
+import Style from './styled';
+
 
 
 const Component = () => {
     return (
-        <div>
-            Footer
-        </div>
+        <Style>
+            
+        </Style>
     );
 };
 

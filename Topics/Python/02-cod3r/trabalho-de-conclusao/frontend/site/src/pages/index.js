@@ -4,20 +4,18 @@ import Layout, { getCategoriesPreHead } from '@Layout';
 
 
 
-const Page = ({ linksHeader }) => (
+const Home = ({ linksHeader }) => (
     <Layout linksHeader={linksHeader}>
         <HomePage/>
     </Layout>
 );
 
 
-export const getStaticProps = async () => {
+Home.getInitialProps = async () => {
     return {
-        props: {
-            linksHeader: await getCategoriesPreHead() || []
-        }
+        linksHeader: await getCategoriesPreHead() || []
     };
-}
+};
 
 
-export default Page;
+export default Home;

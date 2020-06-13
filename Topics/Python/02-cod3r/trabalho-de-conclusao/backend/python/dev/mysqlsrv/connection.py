@@ -5,11 +5,11 @@ from json import load as loadJson
 connectionConfig = loadJson(open('./filesConfig/mysql-connection.json', 'r'))
 
 
-def connect(query):
+def connect(query, dictionary=False):
     try:
         connection = mysql.connector.connect(**connectionConfig)
 
-        cursor = connection.cursor(dictionary=True)
+        cursor = connection.cursor(dictionary=dictionary)
 
         cursor.execute(query)
 

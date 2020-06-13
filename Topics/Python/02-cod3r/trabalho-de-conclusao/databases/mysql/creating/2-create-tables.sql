@@ -1,14 +1,15 @@
-CREATE TABLE IF NOT EXISTS categories (
+CREATE TABLE IF NOT EXISTS burgerking.categories (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
     slug VARCHAR(50) NOT NULL,
     image_path VARCHAR(100),
 
-    PRIMARY KEY (id)
+    PRIMARY KEY (id),
+    UNIQUE KEY (name)
 );
 
 
-CREATE TABLE IF NOT EXISTS products (
+CREATE TABLE IF NOT EXISTS burgerking.products (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     name VARCHAR(75) NOT NULL,
     price INT UNSIGNED NOT NULL,
@@ -21,7 +22,7 @@ CREATE TABLE IF NOT EXISTS products (
 );
 
 
-CREATE TABLE IF NOT EXISTS users (
+CREATE TABLE IF NOT EXISTS burgerking.users (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     name VARCHAR(200) NOT NULL,
     username VARCHAR(50) NOT NULL,
@@ -32,7 +33,7 @@ CREATE TABLE IF NOT EXISTS users (
 );
 
 
-CREATE TABLE IF NOT EXISTS address (
+CREATE TABLE IF NOT EXISTS burgerking.address (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     local VARCHAR(200) NOT NULL,
     complement VARCHAR(50),
@@ -47,7 +48,7 @@ CREATE TABLE IF NOT EXISTS address (
 );
 
 
-CREATE TABLE IF NOT EXISTS orders (
+CREATE TABLE IF NOT EXISTS burgerking.orders (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     date_time DATETIME NOT NULL,
     user_id INT UNSIGNED NOT NULL,
@@ -57,7 +58,7 @@ CREATE TABLE IF NOT EXISTS orders (
 );
 
 
-CREATE TABLE IF NOT EXISTS order_user (
+CREATE TABLE IF NOT EXISTS burgerking.order_user (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     order_id INT UNSIGNED NOT NULL,
     user_id INT UNSIGNED NOT NULL,
@@ -69,10 +70,11 @@ CREATE TABLE IF NOT EXISTS order_user (
 
 
 
-CREATE TABLE IF NOT EXISTS order_product (
+CREATE TABLE IF NOT EXISTS burgerking.order_product (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     order_id INT UNSIGNED NOT NULL,
     product_id INT UNSIGNED NOT NULL,
+    product_qtd INT UNSIGNED NOT NULL,
 
     PRIMARY KEY (id),
     FOREIGN KEY (order_id) REFERENCES orders (id),
@@ -80,7 +82,7 @@ CREATE TABLE IF NOT EXISTS order_product (
 );
 
 
-CREATE TABLE IF NOT EXISTS header_links (
+CREATE TABLE IF NOT EXISTS burgerking.header_links (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     destination VARCHAR(50) NOT NULL,
     target VARCHAR(10) NOT NULL,

@@ -5,6 +5,7 @@ export const transform = (property) => `
 transform: ${property};
 `;
 
+
 export const transition = (property) => `
 -webkit-transition: ${property};
 -moz-transition: ${property};
@@ -13,7 +14,14 @@ export const transition = (property) => `
 transition: ${property};
 `;
 
+
 export const displayRow = () => `
 display: flex;
 flex-direction: row;
+`;
+
+
+export const displayColumn = () => `
+display: flex;
+flex-direction: column;
 `;

@@ -1,28 +1,27 @@
 import React from 'react';
-import { useRouter } from 'next/router';
-import CategoryPage from '@reactPages/Category';
+import CategoryPage, { getCategoryInfo, getProductsQtd } from '@reactPages/Category';
 import Layout, { getCategoriesPreHead } from '@Layout';
 
 
 
-export const getStaticProps = async () => {
-    return {
-        props: {
-            linksHeader: await getCategoriesPreHead() || []
-        }
-    };
+const Category = ({ linksHeader, categoryInfo }) => {
+    return (
+        <Layout linksHeader={linksHeader}>
+            <CategoryPage categoryInfo={categoryInfo} />
+        </Layout>
+    );
 };
 
 
-const Category = ({ linksHeader }) => {
-    const { name } = useRouter().query;
-
-
-    return (
-        <Layout linksHeader={linksHeader}>
-            <CategoryPage categoryName={name} />
-        </Layout>
-    );
+Category.getInitialProps = async ({ query }) => {
+    return {
+        linksHeader: await getCategoriesPreHead() || [],
+        categoryInfo: {
+            ...await getCategoryInfo(query.name),
+            productsQtd: await getProductsQtd(query.name) || 0,
+            slug: query.name
+        }
+    };
 };
 
 

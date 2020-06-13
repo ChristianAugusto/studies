@@ -1,10 +1,10 @@
-import "isomorphic-fetch";
+import 'isomorphic-fetch';
 import React from 'react';
 import Head from 'next/head';
 import { storeTitle, storeDescription, storeKeywords, defaultApi } from '@store';
 import Header from '@components/Header';
 import PreHeader from '@components/PreHeader';
-import Footer from '@components/Footer'
+import Footer from '@components/Footer';
 
 
 
@@ -36,7 +36,7 @@ const Layout = ({ headTitle, children, fonts=[], linksHeader}) => (
 );
 
 
-export const getCategoriesPreHead = async () => {
+export async function getCategoriesPreHead() {
     const reponse = await fetch(`${defaultApi}/api/header_links`);
     const resJson = await reponse.json();
 
