@@ -1,6 +1,7 @@
 CREATE TABLE IF NOT EXISTS categories (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
+    slug VARCHAR(50) NOT NULL,
     image_path VARCHAR(100),
 
     PRIMARY KEY (id)
