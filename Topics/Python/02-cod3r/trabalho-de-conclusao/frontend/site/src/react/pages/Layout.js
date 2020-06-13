@@ -1,14 +1,14 @@
 import "isomorphic-fetch";
 import React from 'react';
 import Head from 'next/head';
-import { storeTitle, storeDescription, storeKeywords } from '@storeDefaults';
-import Header from './general/Header';
-import PreHeader from './general/PreHeader';
-// import Footer from './general/Footer'
+import { storeTitle, storeDescription, storeKeywords, defaultApi } from '@store';
+import Header from '@components/Header';
+import PreHeader from '@components/PreHeader';
+import Footer from '@components/Footer'
 
 
 
-const Layout = ({ headTitle, children, fonts=[], categories}) => (
+const Layout = ({ headTitle, children, fonts=[], linksHeader}) => (
     <div className="app">
         <Head>
             <meta charSet="UTF-8" />
@@ -27,18 +27,17 @@ const Layout = ({ headTitle, children, fonts=[], categories}) => (
             { fonts }
         </Head>
         <div className="app__general">
-            <PreHeader categories={categories} />
+            <PreHeader linksHeader={linksHeader} />
             <Header/>
-            <main>
-                { children }
-            </main>
+            { children }
+            <Footer/>
         </div>
     </div>
 );
 
 
 export const getCategoriesPreHead = async () => {
-    const reponse = await fetch('http://localhost:5000/api/categories?fields=id,name,slug');
+    const reponse = await fetch(`${defaultApi}/api/header_links`);
     const resJson = await reponse.json();
 
     return resJson.data;

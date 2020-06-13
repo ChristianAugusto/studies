@@ -6,11 +6,10 @@
             {
                 "root": ["."],
                 "alias": {
-                    "@components": "./src/components",
-                    "@Layout": "./src/components/Layout.js",
-                    "@pages": "./src/components",
-                    "@configs": "./src/configs",
-                    "@storeDefaults": "./src/configs/store_defaults.js",
+                    "@components": "./src/react/components",
+                    "@Layout": "./src/react/pages/Layout.js",
+                    "@reactPages": "./src/react/pages",
+                    "@store": "./src/configs/store.js",
                     "@mixins": "./src/utils/mixins.js"
                 }
             }

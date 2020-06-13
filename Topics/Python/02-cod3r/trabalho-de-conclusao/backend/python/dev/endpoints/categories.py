@@ -4,26 +4,28 @@ from flask_restful import Resource
 
 
 
+def categoryPage(reqArgs):
+    if not reqArgs.get('categoryName'):
+        return {
+            "data": None,
+            "message": "No category to search"
+        }
+
+    getProductsQuery = f"SELECT id,name,price,qtd_stock,image_path FROM products WHERE category_id = "
+    getCategoryId = f"SELECT id FROM categories WHERE name = '{reqArgs.get('categoryName')}'"
+    query = f"{getProductsQuery}({getCategoryId})"
+
+    return connectMysql(query)
+
+
 class Categories(Resource):
-    def get(self):
+    def get(self, subservice=None):
         try:
-            fields = ''
-            where = ''
-
-            if request.args.get('where'):
-                where = f'WHERE {request.args.get("where")}'
-
-            if request.args.get('fields'):
-                fields = request.args.get('fields')
-            else:
-                fields = 'name'
-
-
-            data = connectMysql(f'SELECT {fields} FROM categories {where}')
-            return {
-                "data": data,
-                "message": "Success"
+            subservices = {
+                "page": categoryPage
             }
+
+            return subservices[subservice](request.args)
         except Exception as e:
             print(request.args)
             print(e)

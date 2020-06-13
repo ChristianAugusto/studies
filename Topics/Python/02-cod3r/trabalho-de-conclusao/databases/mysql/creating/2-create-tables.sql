@@ -78,3 +78,14 @@ CREATE TABLE IF NOT EXISTS order_product (
     FOREIGN KEY (order_id) REFERENCES orders (id),
     FOREIGN KEY (product_id) REFERENCES products (id)
 );
+
+
+CREATE TABLE IF NOT EXISTS header_links (
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    destination VARCHAR(50) NOT NULL,
+    target VARCHAR(10) NOT NULL,
+    text VARCHAR(50) NOT NULL,
+    rel VARCHAR(20),
+
+    PRIMARY KEY (id)
+);

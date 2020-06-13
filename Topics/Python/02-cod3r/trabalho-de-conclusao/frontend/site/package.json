@@ -6,9 +6,9 @@
   "author": "Christian Augusto Martins dos Santos Barros",
   "license": "MIT",
   "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start"
+    "dev": "next ./src",
+    "build": "next build ./src",
+    "start": "next start ./src -p 3000"
   },
   "dependencies": {
     "babel-plugin-module-resolver": "^4.0.0",

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { displayRow, transition } from '@mixins';
-import { storeFont } from '@storeDefaults';
+import { storeFont } from '@store';
 
 
 

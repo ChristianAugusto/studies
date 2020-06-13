@@ -1,5 +1,5 @@
 import React from 'react';
-import { storeName, storeLogoSrc } from '@storeDefaults';
+import { storeName, storeLogoSrc } from '@store';
 import Style from './styled';
 
 
