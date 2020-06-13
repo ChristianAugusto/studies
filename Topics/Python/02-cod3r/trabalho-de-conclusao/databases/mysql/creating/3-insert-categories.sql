@@ -1,5 +1,5 @@
-INSERT INTO categories (name, slug) VALUES ('Lanches', 'Lanches');
-INSERT INTO categories (name, slug) VALUES ('Bebidas', 'Bebidas');
-INSERT INTO categories (name, slug) VALUES ('Sobremesas', 'Sobremesas');
+INSERT INTO categories (name, slug) VALUES ('Lanches', 'lanches');
+INSERT INTO categories (name, slug) VALUES ('Bebidas', 'bebidas');
+INSERT INTO categories (name, slug) VALUES ('Sobremesas', 'sobremesas');
 
 SELECT * FROM categories;

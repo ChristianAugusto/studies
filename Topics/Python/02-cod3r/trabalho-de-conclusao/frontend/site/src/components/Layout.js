@@ -37,7 +37,7 @@ const Layout = ({ headTitle, children, fonts=[], categories}) => (
 );
 
 
-export const getCategories = async () => {
+export const getCategoriesPreHead = async () => {
     const reponse = await fetch('http://localhost:5000/api/categories?fields=id,name,slug');
     const resJson = await reponse.json();
 

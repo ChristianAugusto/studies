@@ -1,13 +1,12 @@
 import React from 'react';
 
 
+
 const Component = () => {
-
-
     return (
-        <div>
-            Product
-        </div>
+        <section>
+            <h1>Product</h1>
+        </section>
     );
 };
 

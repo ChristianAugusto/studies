@@ -1,14 +1,25 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 
-const Component = () => {
+
+const Component = ({ category }) => {
+
+    
 
 
     return (
-        <div>
-            Category
-        </div>
+        <section>
+            <h1>{JSON.stringify(category)}</h1>
+        </section>
     );
+};
+
+
+export const getCategoriesToParams = async () => {
+    const reponse = await fetch('http://localhost:5000/api/categories?fields=slug');
+    const resJson = await reponse.json();
+
+    return resJson.data;
 };
 
 

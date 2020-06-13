@@ -1,11 +1,12 @@
 import React from 'react';
-import Layout, { getCategories } from '@Layout';
+import Home from '@components/pages/Home';
+import Layout, { getCategoriesPreHead } from '@Layout';
 
 
 
-const Home = ({ categories }) => (
+const Page = ({ categories }) => (
     <Layout categories={categories}>
-        Home
+        <Home />
     </Layout>
 );
 
@@ -13,10 +14,10 @@ const Home = ({ categories }) => (
 export const getStaticProps = async () => {
     return {
         props: {
-            categories: (await getCategories()) || []
+            categories: await getCategoriesPreHead() || []
         }
     };
 }
 
 
-export default Home;
+export default Page;
