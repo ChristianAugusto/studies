@@ -2,11 +2,7 @@ import styled from 'styled-components';
 // import { displayRow } from '@mixins';
 
 
-const Style = styled.footer`
+export const Footer = styled.footer`
     width: 100%;
     height: auto;
 `;
-
-
-
-export default Style;

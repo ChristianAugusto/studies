@@ -1,12 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
-import Style from './styled';
+import * as S from './styled';
 
 
 
 const Component = ({ linksHeader }) => {
     return (
-        <Style>
+        <S.PreHeader>
             {linksHeader.map(({ id, destination, target, text, rel }) => (
                 <Link href={destination} key={id}>
                     { rel ? <a target={target} rel={rel}>{text}</a>
@@ -14,7 +14,7 @@ const Component = ({ linksHeader }) => {
                     }
                 </Link>
             ))}
-        </Style>
+        </S.PreHeader>
     );
 };
 

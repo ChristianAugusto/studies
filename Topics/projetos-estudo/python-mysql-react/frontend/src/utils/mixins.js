@@ -25,3 +25,13 @@ export const displayColumn = () => `
 display: flex;
 flex-direction: column;
 `;
+
+
+export const mqmin = (min) => `
+@media only screen and (min-width: ${min})
+`;
+
+
+export const mqmax = (max) => `
+@media only screen and (max-width: ${max})
+`;

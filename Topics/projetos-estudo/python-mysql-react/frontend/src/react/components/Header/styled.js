@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { displayRow } from '@mixins';
 
 
-const Style = styled.header`
+export const Header = styled.header`
     width: 100%;
     height: auto;
     ${displayRow()}
@@ -12,7 +12,3 @@ const Style = styled.header`
     padding: 5px 100px;
     background: #ed7901;
 `;
-
-
-
-export default Style;

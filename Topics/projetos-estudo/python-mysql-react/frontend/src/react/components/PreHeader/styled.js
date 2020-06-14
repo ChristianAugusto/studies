@@ -4,7 +4,7 @@ import { storeFont } from '@store';
 
 
 
-const Style = styled.div`
+export const PreHeader = styled.div`
     width: 100%;
     height: auto;
     ${displayRow()}
@@ -30,7 +30,3 @@ const Style = styled.div`
         color: #b50000;
     }
 `;
-
-
-
-export default Style;

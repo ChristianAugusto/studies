@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import 'isomorphic-fetch';
 import { defaultApi } from '@store';
+import Main from '@components/Main';
 import Shelf from '@Shelf';
-import * as Styled from './styled';
+import * as S from './styled';
 
 
 
@@ -25,19 +26,19 @@ const CategoryPage = ({ categoryInfo }) => {
     }, [categorySlug]);
 
     return (
-        <main>
-            <Styled.CategoryIntro>
+        <Main>
+            <S.CategoryIntro>
                 <h1 className="category__name">{categoryName}</h1>
-            </Styled.CategoryIntro>
-            <Styled.CategoryContent>
-                <Styled.FiltersWrapper>
+            </S.CategoryIntro>
+            <S.CategoryContent>
+                <S.FiltersWrapper>
 
-                </Styled.FiltersWrapper>
-                <Styled.ShelfWrapper>
+                </S.FiltersWrapper>
+                <S.ShelfWrapper>
                     <Shelf products={products} sizeRow={4} />
-                </Styled.ShelfWrapper>
-            </Styled.CategoryContent>
-        </main>
+                </S.ShelfWrapper>
+            </S.CategoryContent>
+        </Main>
     );
 };
 

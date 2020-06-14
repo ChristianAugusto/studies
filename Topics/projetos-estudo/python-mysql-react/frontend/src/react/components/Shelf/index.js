@@ -1,5 +1,5 @@
 import React from 'react';
-import * as Styled from './styled';
+import * as S from './styled';
 import Item from './Item';
 
 
@@ -16,9 +16,9 @@ const Shelf = ({ sizeRow, products }) => {
             }
 
             shelfRows.push(
-                <Styled.ShelfLine key={i}>
+                <S.ShelfLine key={i}>
                     {items}
-                </Styled.ShelfLine>
+                </S.ShelfLine>
             );
         }
 
@@ -26,9 +26,9 @@ const Shelf = ({ sizeRow, products }) => {
     }
 
     return (
-        <Styled.Shelf>
+        <S.Shelf>
             {build(sizeRow, products)}
-        </Styled.Shelf>
+        </S.Shelf>
     )
 };
 

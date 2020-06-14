@@ -1,16 +1,16 @@
 import React from 'react';
-import Style from './styled';
+import * as S from './styled';
 
 
 
-const Component = () => {
+const Footer = () => {
     return (
-        <Style>
+        <S.Footer>
             
-        </Style>
+        </S.Footer>
     );
 };
 
 
 
-export default Component;
+export default Footer;

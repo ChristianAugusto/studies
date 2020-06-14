@@ -1,17 +1,17 @@
 import React from 'react';
-import Style from './styled';
+import * as S from './styled';
 import Logo from './Logo';
 
 
 
-const Component = () => {
+export const Header = () => {
     return (
-        <Style>
+        <S.Header>
             <Logo />
-        </Style>
+        </S.Header>
     );
 };
 
 
 
-export default Component;
+export default Header;

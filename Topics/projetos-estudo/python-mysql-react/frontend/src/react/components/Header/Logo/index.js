@@ -1,11 +1,11 @@
 import React from 'react';
 import { storeName, storeLogoSrc } from '@store';
-import Style from './styled';
+import * as S from './styled';
 
 
 
 const Logo = () => (
-    <Style/>
+    <S.Logo/>
 );
 
 
