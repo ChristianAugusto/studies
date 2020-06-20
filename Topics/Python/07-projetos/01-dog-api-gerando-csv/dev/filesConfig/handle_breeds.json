@@ -1,0 +1,12 @@
+{
+    "getBreeds": {
+        "url": "https://dog.ceo/api/breeds/list/all",
+        "headers": {
+            "Accept": "application/json"
+        },
+        "timeout": 300
+    },
+    "processBreeds": {
+        "header": ["name", "sub-breed"]
+    }
+}

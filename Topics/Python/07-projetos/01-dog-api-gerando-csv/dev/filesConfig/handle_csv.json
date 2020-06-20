@@ -1,0 +1,10 @@
+{
+    "openFile": {
+        "file": "breeds{complement}.csv",
+        "mode": "w",
+        "newline": ""
+    },
+    "csvWriter": {
+        "delimiter": "|"
+    }
+}
