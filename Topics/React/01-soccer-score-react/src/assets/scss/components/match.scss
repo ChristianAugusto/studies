@@ -1,0 +1,40 @@
+.ch-soccer-match {
+
+  &__event {
+    @include display-column;
+
+    &-stadium {
+      background-color: #f5f4fc;
+      padding: 12px 24px;
+      border-radius: 50px;
+
+      p {
+        font-size: 20px;
+        color: #595b64;
+      }
+    }
+
+    &-date-hour {
+      @include display-row;
+      justify-content: center;
+      margin-top: 13px;
+    }
+
+    &-date, &-separator, &-hour {
+      font-size: 16px;
+      color: #595b64;
+    }
+
+    &-date {
+
+    }
+
+    &-separator {
+      margin: 0 7px;
+    }
+
+    &-hour {
+
+    }
+  }
+}

@@ -1,0 +1,211 @@
+@import "./config/config.scss";
+
+html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    #app {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+
+      .calculator {
+        width: 340px;
+        height: 425px;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        @include transform(translate(-50%, -65%));
+
+        &-container {
+          width: 100%;
+          @include display-column;
+          justify-content: flex-start;
+          align-items: center;
+        }
+
+        &-visor {
+          width: 100%;
+          height: 60px;
+          padding: 0 5px;
+          box-sizing: border-box;
+          background-color: #979797;
+          border: 1px solid #9d9d9d;
+          font-size: 25px;
+          color: #000000;
+          font-weight: 700;
+          @include display-row;
+          justify-content: flex-end;
+          align-items: center;
+        }
+
+        &-pad-container {
+          width: 100%;
+          @include display-row;
+          justify-content: space-between;
+          align-items: flex-start;
+        }
+        &-numpad {
+          @include display-column;
+          justify-content: flex-start;
+          align-items: flex-start;
+        }
+
+
+
+        ul {
+
+          &.calculator-numpad__list {
+            width: 100%;
+            @include display-row;
+            justify-content: space-between;
+            align-items: flex-start;
+          }
+
+          li {
+            position: relative;
+
+            &.number-button, 
+            &.clear-button, 
+            &.decimal-button,
+            &.percent-button,
+            &.calculate-button {
+              button {
+                background-color: #d5d5d5;
+              }
+            }
+
+            &.operation-button, &.operation-button {
+              button {
+                background-color: #e89748;
+              }
+            }
+
+            button {
+              width: 85px;
+              height: 50px;
+              box-sizing: border-box;
+              @include display-row;
+              justify-content: center;
+              align-items: center;
+              border: 1px solid #9d9d9d;
+              font-size: 14px;
+              color: #000000;
+              font-weight: 700;
+              position: relative;
+            }
+          }
+        }
+
+        &-pad-container {
+
+          &.initial {
+            ul {
+              li.operation-button,
+              li.percent-button {
+                &::after {
+                  content: "";
+                  position: absolute;
+                  left: 0;
+                  top: 0;
+                  width: 100%;
+                  height: 100%;
+                  background-color: rgba($color: #ffffff, $alpha: 0.65);
+                }
+              }
+            }
+          }
+
+          &.is--typing {
+            ul {
+              li.percent-button,
+              li.pi-button {
+                &::after {
+                  content: "";
+                  position: absolute;
+                  left: 0;
+                  top: 0;
+                  width: 100%;
+                  height: 100%;
+                  background-color: rgba($color: #ffffff, $alpha: 0.65);
+                }
+              }
+            }
+          }
+
+          &.decimal-block {
+            ul {
+              li.decimal-button {
+                &::after {
+                  content: "";
+                  position: absolute;
+                  left: 0;
+                  top: 0;
+                  width: 100%;
+                  height: 100%;
+                  background-color: rgba($color: #ffffff, $alpha: 0.65);
+                }
+              }
+            }
+          }
+
+          &.second-number {
+            ul {
+              li.operation-button,
+              li.percent-button {
+                &::after {
+                  content: "";
+                  position: absolute;
+                  left: 0;
+                  top: 0;
+                  width: 100%;
+                  height: 100%;
+                  background-color: rgba($color: #ffffff, $alpha: 0.65);
+                }
+              }
+            }
+          }
+
+          &:not(.allow-calculate-button) {
+            ul {
+              li.calculate-button {
+                &::after {
+                  content: "";
+                  position: absolute;
+                  left: 0;
+                  top: 0;
+                  width: 100%;
+                  height: 100%;
+                  background-color: rgba($color: #ffffff, $alpha: 0.65);
+                }
+              }
+            }
+          }
+
+          &.block-all {
+            ul {
+              li:not(.clear-button) {
+                &::after {
+                  content: "";
+                  position: absolute;
+                  left: 0;
+                  top: 0;
+                  width: 100%;
+                  height: 100%;
+                  background-color: rgba($color: #ffffff, $alpha: 0.65);
+                }
+              }
+            }
+          }
+
+        }
+      }
+    }
+  }
+}

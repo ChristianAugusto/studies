@@ -1,0 +1,49 @@
+.ch-soccer-match {
+
+  &__team {
+    width: 330px;
+
+    &-side {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+
+      p {
+        font-size: 25px;
+        color: #000000;
+      }
+    }
+
+    &-content {
+      width: 100%;
+      box-sizing: border-box;
+      border: 2px solid #e2e0e2;
+      border-radius: 5px;
+      padding: 42px 34px 34px 35px;
+      @include display-column;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    &-name {
+      font-size: 50px;
+      color: #1e1d1e;
+      margin: 0 auto;
+    }
+    
+    &-score {
+      font-size: 45px;
+      color: #5c5e68;
+      margin: 12px auto 43px;
+    }
+
+    &-goal-button {
+      width: 85px;
+      height: 57px;
+      background-color: #00c1da;
+      border-radius: 5px;
+      font-size: 22px;
+      color: #ffffff;
+    }
+  }
+}

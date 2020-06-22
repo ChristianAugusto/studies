@@ -1,0 +1,16 @@
+{
+  "name": "soccer-score-react",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "start": "rm -rf dist/ && node gulpfile.js"
+  },
+  "author": "Christian Augusto Martins dos Santos Barros (christianbetta@gmail.com)",
+  "license": "MIT",
+  "devDependencies": {
+    "fronty-gul": "0.0.7",
+    "react": "16.12.0",
+    "react-dom": "16.12.0"
+  }
+}
