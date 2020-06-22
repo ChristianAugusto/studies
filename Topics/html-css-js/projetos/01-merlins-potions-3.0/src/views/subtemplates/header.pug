@@ -1,0 +1,35 @@
+header(class="ch-header")
+    div(class="ch-header__top")
+        include ../svg/mobile_menu_button.pug
+        div(class="ch-header__top-title")
+            a(href="/")
+                h3 #[span Merlin's] Potions
+                h4 fine potions since 1026
+        div(class="ch-header__top-search")
+            include ../svg/mobile_close_menu_button.pug
+            form(class="ch-header__top-search_form", method="GET")
+                button(type="submit", id="ch-header-search_button") Search 
+                    include ../svg/search_button.pug
+                input(type="text", name="search_header", class="ch-header__top-search_input", placeholder="Search our stock")/
+        div(class="ch-header__top-promotion")
+            p Free shipping
+            p on orders over $50
+        div(class="ch-header__top-cart")
+            div(class="ch-header__top-cart_icon")
+                include ../svg/cauldron.pug
+            div(class="ch-header__top-cart_bag")
+                p(class="ch-header__top-cart_title") Bag: #[span(class="ch-header__top-cart_quantity") 0]
+    nav(class="ch-header__nav")
+        ul(class="ch-header__nav-list")
+            li(class="ch-header__nav-list_item") #[a(href="#") Potions] #[span(class="ch-header__nav-list_item-arrow")]
+            li(class="ch-header__nav-list_item") #[a(href="#") Ingredients] #[span(class="ch-header__nav-list_item-arrow")]
+            li(class="ch-header__nav-list_item") #[a(href="#") Books] #[span(class="ch-header__nav-list_item-arrow")]
+            li(class="ch-header__nav-list_item") #[a(href="#") Supplies] #[span(class="ch-header__nav-list_item-arrow")]
+            li(class="ch-header__nav-list_item") #[a(href="#") Charms] #[span(class="ch-header__nav-list_item-arrow")]
+            li(class="ch-header__nav-list_item") #[a(href="#") Clearance!] #[span(class="ch-header__nav-list_item-arrow")]
+        ul(class="ch-header__nav-login")
+            li(class="ch-header__nav-login_item") #[a(href="#") Sign In]
+            p or
+            li(class="ch-header__nav-login_item") #[a(href="#") Sign Up]
+    div(class="ch-header__mobile-promotion")
+        p Free shipping on orders over $50

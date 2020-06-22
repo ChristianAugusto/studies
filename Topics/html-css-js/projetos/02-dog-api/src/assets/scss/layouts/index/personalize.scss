@@ -1,0 +1,462 @@
+
+.ch-personalize {
+  @include display-column;
+  justify-content: flex-start;
+  align-items: center;
+  
+  &__wrapper {
+    width: 100%;
+    @include display-row;
+    justify-content: space-between;
+    align-items: flex-start;
+    @include mq("320px", "1280px") {
+      flex-direction: column;
+    }
+  }
+
+  &__form {
+
+    &-wrapper{
+      @include display-column;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    &-dog-name {
+
+      &-wrapper {
+        @include display-column;
+        align-items: flex-start;
+        justify-content: flex-start;
+      }
+
+      &-label {
+        font-family: "Roboto Slab", serif;
+        font-size: 16px;
+        font-weight: normal;
+        color: #000000;
+        @include mq("320px", "1280px") {
+          font-size: 14px;
+        }
+      }
+
+      &-input {
+        min-width: 260px;
+        min-height: 45px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        border: 1px solid #00b7ff;
+        box-sizing: border-box;
+        padding: 10px 10px;
+        background-color: #ffffff;
+        margin-top: 10px;
+        font-family: "Lato", sans-serif;
+        font-size: 14px;
+        font-weight: 600;
+        text-transform: none;
+        color: #000000;
+
+        &:focus {
+          outline: none;
+          outline-color: transparent;
+        }
+      }
+    }
+
+    &-colors {
+
+      &-wrapper {
+        margin: 25px 0 110px;
+      }
+
+      &-label {
+        font-family: "Roboto Slab", serif;
+        font-size: 16px;
+        font-weight: normal;
+        color: #000000;
+        @include mq("320px", "1280px") {
+          font-size: 14px;
+        }
+      }
+
+      &-select {
+        position: relative;
+        margin-top: 10px;
+      
+        &.is--open {
+          .js-personalize__form-colors-select-list {
+            max-height: 90px;
+          }
+        }
+      
+        &-choosen {
+          min-width: 260px;
+          min-height: 45px;
+          @include display-row;
+          align-items: center;
+          justify-content: space-between;
+          border: 1px solid #00b7ff;
+          box-sizing: border-box;
+          padding: 10px 10px;
+          background-color: #ffffff;
+      
+          .js-personalize__form-colors-select-choosen-text {
+            font-family: "Lato", sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #000000;
+            @include mq("320px", "1280px") {
+              font-size: 12px;
+            }
+          }
+        }
+        &-arrow {
+          @include display-column;
+          justify-content: center;
+          align-items: center;
+      
+          svg {
+            fill: #00b7ff;
+          }
+        }
+      
+        .js-personalize__form-colors-select-list {
+          width: 100%;
+          background-color: #ffffff;
+          position: absolute;
+          top: 47px;
+          max-height: 0;
+          overflow-y: auto;
+          @include transition(max-height 0.30s ease-out);
+          &::-webkit-scrollbar { 
+            width: 5px;
+          }
+          &::-webkit-scrollbar-button { 
+            display: none;
+          }
+          &::-webkit-scrollbar-track { 
+            width: 5px;
+            background-color: #ffffff;
+          }
+          &::-webkit-scrollbar-track-piece { 
+            display: none;
+          }
+          &::-webkit-scrollbar-thumb { 
+            width: 5px;
+            background-color: #00b7ff;
+            border-radius: 5px;
+          }
+          &::-webkit-scrollbar-corner { 
+            display: none;
+          }
+          &::-webkit-resizer { 
+            display: none;
+          }
+      
+          li {
+            width: 100%;
+            @include display-column;
+            align-items: flex-start;
+            justify-content: center;
+            box-sizing: border-box;
+            padding: 10px 10px;
+            font-family: "Lato", sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #000000;
+            cursor: pointer;
+            @include transition(all 0.15s linear);
+            @include mq("320px", "1280px") {
+              font-size: 12px;
+            }
+      
+            &.is--active {
+              color: #ffffff;
+              background-color: #73d4fa;
+            }
+      
+            &:hover:not(.is--active) {
+              background-color: rgba($color: #73d4fa, $alpha: 0.35);
+            }
+          }
+        }
+      }
+    }
+
+    &-fonts {
+
+      &-wrapper {
+        margin: 25px 0 110px;
+      }
+
+      &-label {
+        font-family: "Roboto Slab", serif;
+        font-size: 16px;
+        font-weight: normal;
+        color: #000000;
+        @include mq("320px", "1280px") {
+          font-size: 14px;
+        }
+      }
+
+      &-select {
+        position: relative;
+        margin-top: 10px;
+      
+        &.is--open {
+          .js-personalize__form-fonts-select-list {
+            max-height: 90px;
+          }
+        }
+      
+        &-choosen {
+          min-width: 260px;
+          min-height: 45px;
+          @include display-row;
+          align-items: center;
+          justify-content: space-between;
+          border: 1px solid #00b7ff;
+          box-sizing: border-box;
+          padding: 10px 10px;
+          background-color: #ffffff;
+      
+          .js-personalize__form-fonts-select-choosen-text {
+            font-family: "Lato", sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #000000;
+            @include mq("320px", "1280px") {
+              font-size: 12px;
+            }
+          }
+        }
+        &-arrow {
+          @include display-column;
+          justify-content: center;
+          align-items: center;
+      
+          svg {
+            fill: #00b7ff;
+          }
+        }
+      
+        .js-personalize__form-fonts-select-list {
+          width: 100%;
+          background-color: #ffffff;
+          position: absolute;
+          top: 47px;
+          max-height: 0;
+          overflow-y: auto;
+          @include transition(max-height 0.30s ease-out);
+          &::-webkit-scrollbar { 
+            width: 5px;
+          }
+          &::-webkit-scrollbar-button { 
+            display: none;
+          }
+          &::-webkit-scrollbar-track { 
+            width: 5px;
+            background-color: #ffffff;
+          }
+          &::-webkit-scrollbar-track-piece { 
+            display: none;
+          }
+          &::-webkit-scrollbar-thumb { 
+            width: 5px;
+            background-color: #00b7ff;
+            border-radius: 5px;
+          }
+          &::-webkit-scrollbar-corner { 
+            display: none;
+          }
+          &::-webkit-resizer { 
+            display: none;
+          }
+      
+          li {
+            width: 100%;
+            @include display-column;
+            align-items: flex-start;
+            justify-content: center;
+            box-sizing: border-box;
+            padding: 10px 10px;
+            font-family: "Lato", sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #000000;
+            cursor: pointer;
+            @include transition(all 0.15s linear);
+            @include mq("320px", "1280px") {
+              font-size: 12px;
+            }
+      
+            &.is--active {
+              color: #ffffff;
+              background-color: #73d4fa;
+            }
+      
+            &:hover:not(.is--active) {
+              background-color: rgba($color: #73d4fa, $alpha: 0.35);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__response-dog {
+
+    &-info {
+
+      &-image {
+        position: relative;
+        overflow: hidden;
+  
+        .ch-personalize-dog-name-font-wrapper {
+          &.font-playfairdisplay {
+            .js-personalize__response-dog-name-text {
+              font-family: "Playfair Display", serif;
+            }
+          }
+          &.font-lora {
+            .js-personalize__response-dog-name-text {
+              font-family: "Lora", serif;
+            }
+          }
+          &.font-roboto {
+            .js-personalize__response-dog-name-text {
+              font-family: "Roboto", sans-serif;
+            }
+          }
+          &.font-cute {
+            .js-personalize__response-dog-name-text {
+              font-family: "Cute Font", cursive;
+            }
+          }
+          &.font-pacifico {
+            .js-personalize__response-dog-name-text {
+              font-family: "Pacifico", cursive;
+            }
+          }
+        }
+  
+        .ch-personalize-dog-name-color-wrapper {
+          &.color-white {
+            .js-personalize__response-dog-name-text {
+              color: #ffffff;
+            }
+          }
+          &.color-black {
+            .js-personalize__response-dog-name-text {
+              color: #000000;
+            }
+          }
+          &.color-red {
+            .js-personalize__response-dog-name-text {
+              color: #ff0000;
+            }
+          }
+          &.color-blue {
+            .js-personalize__response-dog-name-text {
+              color: #003cff;
+            }
+          }
+          &.color-green {
+            .js-personalize__response-dog-name-text {
+              color: #027208;
+            }
+          }
+        }
+  
+        .ch-personalize-dog-name-wrapper {
+          width: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+  
+          div {
+            width: 100%;
+            @include display-column;
+            justify-content: flex-start;
+            align-items: center;
+          }
+        }
+        .js-personalize__response-dog-name-text {
+          font-size: 35px;
+          font-weight: normal;
+          line-height: 30px;
+          text-align: center;
+          @include mq("320px", "1280px") {
+            font-size: 25px;
+          }
+        }
+  
+  
+  
+        .js-personalize-dog-image {
+          max-width: 450px;
+          min-width: 350px;
+          height: auto;
+          @include mq("320px", "1280px") {
+            max-width: 300px;
+            min-width: 250px;
+          }
+        }
+      }
+    }
+
+    &-breed {
+      width: 100%;
+      @include display-row;
+      justify-content: center;
+      align-items: center;
+      margin-top: 5px;
+
+      .js-personalize__response-dog-breed-text {  
+        font-family: "Lato", sans-serif;
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #000000;
+        @include mq("320px", "1280px") {
+          font-size: 12px;
+          line-height: 14px;        }
+      }
+    }
+  }
+
+  &__save {
+
+    &-wrapper {
+      width: 100%;
+      @include display-column;
+      align-items: center;
+      justify-content: flex-start;
+      @include mq("320px", "1280px") {
+        margin-top: 10px;
+      }
+    }
+
+    &-button {
+      width: 75px;
+      height: 35px;
+      @include display-row;
+      align-items: center;
+      justify-content: center;
+      background-color: #04811f;
+      border-radius: 5px;
+      font-family: "Lato", sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: #ffffff;
+    }
+  }
+}

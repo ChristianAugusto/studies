@@ -1,0 +1,21 @@
+extends ./configbase.pug
+
+block append head
+  title Find your dog hear
+
+block append styles
+  link(type="text/css", rel="stylesheet", href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/css/swiper.min.css")
+  link(type="text/css", rel="stylesheet", href="css/dog-api-app.css")/
+
+block append content
+  div(class="swiper-container")
+    div(class="swiper-wrapper")
+      include ./partials/index/openning.pug
+      include ./partials/index/breeds.pug
+      include ./partials/index/personalize.pug
+  button(class="swiper-button-next")
+  button(class="swiper-button-prev")
+
+block append scripts
+  script(type="text/javascript", src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js")
+  script(type="text/javascript", src="js/dog-api-app.js")

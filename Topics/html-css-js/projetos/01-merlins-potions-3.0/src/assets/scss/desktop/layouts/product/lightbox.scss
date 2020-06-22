@@ -1,0 +1,104 @@
+.ch-product-lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+  background-color: rgba($color: #000000, $alpha: 0.2);
+  z-index: 30;
+
+  .ch-prod-lb-content {
+    width: 730px;
+    height: 520px;
+    overflow: auto;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    @include transform(translate(-50%, -60%));
+    @include display-row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding-top: 50px;
+
+    .ch-prod-lb-image-container {
+      max-width: 420px;
+      max-height: 420px;
+    }
+
+    .ch-prod-lb-description-container {
+      width: 35%;
+
+      .ch-prod-lb-name {
+        font-size: 20px;
+        font-weight: 700;
+      }
+
+      .ch-prod-lb-effect {
+        margin: 21px 0 25px;
+
+        &__title {
+          font-size: 20px;
+          font-weight: 700;
+          margin-bottom: 23px;
+        }
+        &__value {
+          font-size: 17px;
+          font-weight: normal;
+        }
+      }
+
+      .ch-prod-lb-ingredients {
+        margin-bottom: 23px;
+
+        &__title {
+          font-size: 20px;
+          font-weight: 700;
+          margin-bottom: 22px;
+        }
+        &__list {
+          @include display-column;
+          align-items: flex-start;
+
+          li {
+            font-size: 17px;
+            font-weight: normal;
+          }
+        }
+      }
+
+      .ch-prod-lb-price {
+        margin-bottom: 23px;
+
+        &__title {
+          font-size: 20px;
+          font-weight: 700;
+        }
+        &__value {
+          font-size: 20px;
+          font-weight: 700;
+          color: #d73a1e;
+        }
+      }
+
+      .ch-prod-lb-add-to-cart {
+        width: 140px;
+        height: 40px;
+        box-sizing: border-box;
+        background-color: #d73a1e;
+        border-radius: 5px;
+        padding: 10px 15px 14px 15px;
+        text-transform: uppercase;
+        color: #ffffff;
+      }
+    }
+
+    .ch-prod-lb-close-button {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+    }
+  }
+}

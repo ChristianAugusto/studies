@@ -1,0 +1,33 @@
+.ch-category {
+   &__shelf-product {
+      width: 25%;
+      @include display-column;
+      align-items: center;
+      justify-content: flex-start;
+      cursor: pointer;
+
+      &__image {
+         max-width: 300px;
+         max-height: 300px;
+      }
+
+
+      &__content {
+         @include display-row;
+         justify-content: center;
+      }
+      &__name, &__space, &__price {
+         font-size: 17px;
+      }
+      &__name {
+         font-weight: 700;
+      }
+      &__space {
+         margin: 0 4px;
+      }
+      &__price {
+         font-weight: 100;
+         color: #d73a41;
+      }
+   }
+}

@@ -1,0 +1,23 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")/
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")/
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")/
+    meta(name="author", content="Christian Augusto Martins dos Santos Barros")/
+    meta(name="description", content="Find your dog hear")/
+    meta(name="keywords", content="Pet, Pets, Dogs")/
+
+    block head
+
+    include subtemplates/fonts.pug
+
+    block styles
+
+  body
+    div(class="ch-content")
+      include subtemplates/header.pug
+      main(class="ch-main")
+        block content
+
+    block scripts

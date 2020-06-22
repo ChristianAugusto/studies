@@ -1,0 +1,9 @@
+@import "../common/fonts/fonts.scss";
+@import "../common/variables/variables.scss";
+@import "../common/mixins/mixins.scss";
+
+@include mobile() {
+  @import "./layouts/general/config.scss";
+  @import "./layouts/category/config.scss";
+  @import "./layouts/product/lightbox.scss";
+}

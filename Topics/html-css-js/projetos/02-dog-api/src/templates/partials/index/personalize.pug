@@ -1,0 +1,34 @@
+section(class="ch-personalize swiper-slide")
+  div(class="ch-personalize__wrapper")
+    form(class="ch-personalize__form")
+      div(class="ch-personalize__form-wrapper")
+        div(class="ch-personalize__form-dog-name-wrapper")
+          label(class="ch-personalize__form-dog-name-label") 2) Now choose your dog's name
+          input(type="text", class="ch-personalize__form-dog-name-input")
+        div(class="ch-personalize__form-colors-wrapper")
+          label(class="ch-personalize__form-colors-label") 3) Now choose your dog's name color:
+          div(class="ch-personalize__form-colors-select")
+            div(class="ch-personalize__form-colors-select-choosen")
+              p(class="js-personalize__form-colors-select-choosen-text") 
+              button(class="ch-personalize__form-colors-select-arrow")
+                include ../../svg/arrow-select.svg
+            ul(class="js-personalize__form-colors-select-list")
+        div(class="ch-personalize__form-fonts-wrapper")
+          label(class="ch-personalize__form-fonts-label") 4) Now choose your dog's name font:
+          div(class="ch-personalize__form-fonts-select")
+            div(class="ch-personalize__form-fonts-select-choosen")
+              p(class="js-personalize__form-fonts-select-choosen-text") 
+              button(class="ch-personalize__form-fonts-select-arrow")
+                include ../../svg/arrow-select.svg
+            ul(class="js-personalize__form-fonts-select-list")
+    div(class="ch-personalize__response-dog-info")
+      div(class="ch-personalize__response-dog-info-image")
+        div(class="ch-personalize-dog-name-wrapper")
+          div(class="ch-personalize-dog-name-font-wrapper")
+            div(class="ch-personalize-dog-name-color-wrapper")
+              p(class="js-personalize__response-dog-name-text")
+        img(src="", alt="", class="js-personalize-dog-image")
+      div(class="ch-personalize__response-dog-breed")
+        p(class="js-personalize__response-dog-breed-text")
+  div(class="ch-personalize__save-wrapper")
+    button(class="ch-personalize__save-button") Save

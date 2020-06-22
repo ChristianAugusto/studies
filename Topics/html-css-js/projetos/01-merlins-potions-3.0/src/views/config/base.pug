@@ -1,0 +1,23 @@
+doctype html
+html(lang="en")
+   head
+      meta(charset="UTF-8")
+      meta(name="viewport", content="width=device-width, initial-scale=1.0")
+      meta(http-equiv="X-UA-Compatible", content="ie=edge")
+
+      block head
+         title Merlin's Potions - fine potions since 1026
+
+      block styles
+         include ./files/fonts.pug
+         include ./files/styles.pug
+   body
+      include ../subtemplates/header.pug
+
+      main(class="ch-main")
+         block content
+
+      include ../subtemplates/footer.pug
+      
+      block scripts
+         include ./files/scripts.pug

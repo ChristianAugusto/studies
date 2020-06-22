@@ -1,0 +1,11 @@
+body {
+    @include desktop {
+        max-width: 2500px;
+    }
+    width: 100%;
+    margin: 0 auto;
+
+    &.ch-is-locked {
+        overflow: hidden;
+    }
+}

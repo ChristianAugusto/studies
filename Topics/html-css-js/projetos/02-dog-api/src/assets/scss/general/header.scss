@@ -1,0 +1,34 @@
+.ch-header {
+  width: 100%;
+  background-color: #ffffff;
+  box-sizing: border-box;
+  @include display-row;
+  align-items: center;
+  justify-content: center;
+
+  .ch-logotype {
+    @include display-column;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      width: 75px;
+      height: 75px;
+      @include mq("320px", "1280px") {
+        width: 60px;
+        height: 60px;
+      }
+    }
+
+    h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 24px;
+      color: #000000;
+      font-weight: normal;
+      margin-left: 15px;
+      @include mq("320px", "1280px") {
+        font-size: 20px;
+      }
+    }
+  }
+}

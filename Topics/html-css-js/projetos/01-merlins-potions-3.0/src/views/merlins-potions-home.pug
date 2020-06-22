@@ -1,0 +1,13 @@
+extends ./config/base.pug
+
+block append styles
+   link(rel="stylesheet", href="/css/merlins-potions-desktop-home.css")
+   link(rel="stylesheet", href="/css/merlins-potions-mobile-home.css")
+
+block append content
+   include ./partials/category/category.pug
+   div(class="ch-product")
+      include ./partials/product/lightbox.pug
+
+block append scripts
+   script(type="text/javascript", src="/js/merlins-potions-mobile-home.js")

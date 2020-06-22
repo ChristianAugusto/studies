@@ -1,0 +1,19 @@
+.ch-category {
+   margin: 55px 3.5% 0px;
+
+   &__name {
+      font-size: 26px;
+      font-weight: 700;
+      color: #000000;
+   }
+   &__shelf-products {
+      width: 90%;
+      margin: 71px auto 0;
+   }
+   &__shelf-line {
+      @include display-row;
+      justify-content: space-between;
+
+      margin-bottom: 100px;
+   }
+}
