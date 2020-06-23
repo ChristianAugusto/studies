@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+    mysqlsrv:
+        image: mysql:5.7.30
+        environment:
+            MYSQL_ROOT_PASSWORD: "12345678"
+        ports:
+            - "3306:3306"
+        expose:
+            - "3306"
+        volumes:
+            - ./database/server:/var/lib/mysql
+    backend-python:
+        image: python:3.6.8
+        ports:
+            - "5000:5000"
+        expose:
+            - "5000"
+        volumes:
+            - ./backend/dev:/backend/python
+        command: bash -c "cd /backend/python && pip install -r requirements.txt && python main.py > logs/logs.txt"
