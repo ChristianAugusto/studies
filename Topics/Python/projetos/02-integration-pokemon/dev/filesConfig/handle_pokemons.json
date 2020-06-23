@@ -1,0 +1,30 @@
+{
+    "getPokemons": {
+        "baseUrl": "https://pokeapi.co/api/v2/pokemon?limit={limit}&offset={offset}",
+        "limit": 50,
+        "call": {
+            "headers": {
+                "Accept": "application/json"
+            },
+            "timeout": 300
+        }
+    },
+    "getPokemon": {
+        "baseUrl": "https://pokeapi.co/api/v2/pokemon/{name}",
+        "call": {
+            "headers": {
+                "Accept": "application/json"
+            },
+            "timeout": 300
+        },
+        "fields": [
+            ["id"],
+            ["name"],
+            ["weight"],
+            ["height"],
+            ["sprites", "front_default"],
+            ["sprites", "back_default"],
+            ["types", "type", "name"]
+        ]
+    }
+}

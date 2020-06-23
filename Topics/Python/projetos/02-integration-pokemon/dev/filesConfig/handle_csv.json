@@ -1,0 +1,11 @@
+{
+    "openFile": {
+        "file": "{complement}pokemons.csv",
+        "mode": "a",
+        "newline": ""
+    },
+    "csvWriter": {
+        "delimiter": "|"
+    },
+    "header": ["id", "name", "weight", "height", "image_front_default", "image_back_default", "type(s)"]
+}
