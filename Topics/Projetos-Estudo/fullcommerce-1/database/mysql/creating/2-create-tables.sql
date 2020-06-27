@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS burgerking.categories (
     image_path VARCHAR(100),
 
     PRIMARY KEY (id),
-    UNIQUE KEY (name)
+    UNIQUE KEY (slug)
 );
 
 
