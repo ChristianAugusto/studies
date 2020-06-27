@@ -9,13 +9,12 @@ services:
         expose:
             - "3306"
         volumes:
-            - ./database/server:/var/lib/mysql
-    backend-python:
-        image: python:3.6.8
-        ports:
-            - "5000:5000"
-        expose:
-            - "5000"
-        volumes:
-            - ./backend/dev:/backend/python
-        command: bash -c "cd /backend/python && pip install -r requirements.txt && python main.py > logs/logs.txt"
+            - ./database/mysql/server:/var/lib/mysql
+    # store:
+    #     image: node:10.17.0
+    #     ports:
+    #         - "80:80"
+    #     expose:
+    #         - "80"
+    #     volumes:
+    #         - ./store:/store
