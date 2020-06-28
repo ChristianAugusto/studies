@@ -3,17 +3,19 @@ const mysql = require('mysql');
 
 
 module.exports = (_query) => new Promise((resolve, reject) => {
+    console.log(+process.env.MYSQL_PORT, typeof(+process.env.MYSQL_PORT));
     const connection = mysql.createConnection({
-        host: "localhost",
-        port: "3306",
-        user: "root",
-        password: "12345678",
-        database: "burgerking"
+        host: process.env.MYSQL_HOST,
+        port: +process.env.MYSQL_PORT,
+        user: process.env.MYSQL_USER,
+        password: process.env.MYSQL_PASSWORD,
+        database: process.env.MYSQL_DATABASE
     });
 
     connection.connect((err) => {
         if (err) {
             console.error(err);
+            connection.end();
             reject(err);
         }
 
@@ -25,6 +27,7 @@ module.exports = (_query) => new Promise((resolve, reject) => {
         connection.query(_query, (error, results) => {
             if (error) {
                 console.error(err);
+                connection.end();
                 reject(err);
             }
             console.log('[WARNING] - Query executed with success');

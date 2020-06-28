@@ -1,0 +1,23 @@
+[33m[nodemon] 2.0.4[39m
+[33m[nodemon] to restart at any time, enter `rs`[39m
+[33m[nodemon] watching path(s): *.*[39m
+[33m[nodemon] watching extensions: js,mjs,json[39m
+[32m[nodemon] starting `node index.js`[39m
+Server running at port 3000
+3306 'number'
+[WARNING] - Connected to mysql
+[WARNING] - Executing query: SELECT id,name,slug FROM categories WHERE slug = 'lanches'
+[WARNING] - Query executed with success
+[WARNING] - Closing connection
+[WARNING] - Connection closed
+[WARNING] - Results: undefined
+[32m[nodemon] restarting due to changes...[39m
+[32m[nodemon] starting `node index.js`[39m
+Server running at port 3000
+3306 'number'
+[WARNING] - Connected to mysql
+[WARNING] - Executing query: SELECT id,name,slug FROM categories WHERE slug = 'lanches'
+[WARNING] - Query executed with success
+[WARNING] - Closing connection
+[WARNING] - Connection closed
+[WARNING] - Results: undefined

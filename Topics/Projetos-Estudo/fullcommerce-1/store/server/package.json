@@ -3,12 +3,15 @@
   "version": "1.0.0",
   "main": "src/index.js",
   "scripts": {
-    "start": "node ./src/index.js",
-    "dev": "nodemon ./src/index.js"
+    "start": "node index.js > server.log",
+    "dev": "nodemon index.js > server.log"
   },
   "dependencies": {
-    "express": "^4.17.1",
-    "mysql": "^2.18.1"
+    "express": "4.17.1",
+    "mysql": "2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "2.0.4"
   },
   "license": "MIT"
 }
