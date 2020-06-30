@@ -5,11 +5,11 @@ const path = require('path');
 
 const app = express();
 
-app.use(express.static(path.join(__dirname, 'public/static')));
+app.use(express.static('./src/public/static'));
 
 require('./src/routes')(app);
 
 
 const port = +process.env.SERVER_PORT;
-const host = '0.0.0.0';
+const host = process.env.SERVER_HOST;
 app.listen(port, host, () => console.log(`Server running at port ${port}`));

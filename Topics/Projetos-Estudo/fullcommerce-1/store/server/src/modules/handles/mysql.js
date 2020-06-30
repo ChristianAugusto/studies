@@ -3,7 +3,6 @@ const mysql = require('mysql');
 
 
 module.exports = (_query) => new Promise((resolve, reject) => {
-    console.log(+process.env.MYSQL_PORT, typeof(+process.env.MYSQL_PORT));
     const connection = mysql.createConnection({
         host: process.env.MYSQL_HOST,
         port: +process.env.MYSQL_PORT,
