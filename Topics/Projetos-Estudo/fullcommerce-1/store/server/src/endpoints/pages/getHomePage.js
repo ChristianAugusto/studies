@@ -21,8 +21,8 @@ module.exports = async () => {
         };
     }
     catch (error) {
-        console.error('[ERROR] - Error in getCategoryPage');
-        console.error(error);
+        console.log('[ERROR] - Error in getCategoryPage');
+        console.log(error);
         return {
             status: 500,
             headers: {

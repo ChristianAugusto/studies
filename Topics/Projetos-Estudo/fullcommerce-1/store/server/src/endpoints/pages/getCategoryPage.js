@@ -11,7 +11,7 @@ module.exports = async (reqParams) => {
         const category = await getProductsByCategorySlug(reqParams.categorySlug);
 
         if (!category || !category.initialProducts || category.initialProducts.length == 0) {
-            console.error('[ERROR] - No products for category slug')
+            console.log('[ERROR] - No products for category slug')
             throw new Error();
         }
 
@@ -27,8 +27,8 @@ module.exports = async (reqParams) => {
         };
     }
     catch (error) {
-        console.error('[ERROR] - Error in getCategoryPage');
-        console.error(error);
+        console.log('[ERROR] - Error in getCategoryPage');
+        console.log(error);
         return {
             status: 500,
             headers: {
@@ -77,7 +77,7 @@ async function getProductsByCategorySlug(_categorySlug, _startIndex=0, _lastInde
         const [categoryInfo] = await handleMysql(getCategoryIdQuery);
 
 
-        const getProductsQuery = `SELECT id,name,price,qtd_stock,image_path FROM products WHERE category_id = ${categoryInfo.id} LIMIT ${_startIndex},${_lastIndex}`;
+        const getProductsQuery = `SELECT id,name,price,qtdStock,imagePath FROM products WHERE categoryId = ${categoryInfo.id} LIMIT ${_startIndex},${_lastIndex}`;
         const initialProducts = await handleMysql(getProductsQuery);
 
         return {

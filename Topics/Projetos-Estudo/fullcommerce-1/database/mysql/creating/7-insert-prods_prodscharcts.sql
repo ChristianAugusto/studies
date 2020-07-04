@@ -520,21 +520,6 @@ VALUES
 INSERT INTO prods_prodscharacts
     (prodcharactId, productdId)
 VALUES
-    (11, 23);
-
-
-INSERT INTO prods_prodscharacts
-    (prodcharactId, productdId)
-VALUES
-    (11, 25);
-
-
---
-
-
-INSERT INTO prods_prodscharacts
-    (prodcharactId, productdId)
-VALUES
     (12, 1);
 
 

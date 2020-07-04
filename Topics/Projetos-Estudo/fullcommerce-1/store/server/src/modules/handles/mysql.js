@@ -13,7 +13,7 @@ module.exports = (_query) => new Promise((resolve, reject) => {
 
     connection.connect((err) => {
         if (err) {
-            console.error(err);
+            console.log(err);
             connection.end();
             reject(err);
         }
@@ -25,7 +25,7 @@ module.exports = (_query) => new Promise((resolve, reject) => {
 
         connection.query(_query, (error, results) => {
             if (error) {
-                console.error(err);
+                console.log(err);
                 connection.end();
                 reject(err);
             }

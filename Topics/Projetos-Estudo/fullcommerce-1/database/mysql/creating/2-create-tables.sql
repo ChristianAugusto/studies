@@ -30,7 +30,8 @@ CREATE TABLE IF NOT EXISTS prodscharacts (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     label VARCHAR(50) NOT NULL,
 
-    PRIMARY KEY (id)
+    PRIMARY KEY (id),
+    UNIQUE KEY (label)
 );
 
 

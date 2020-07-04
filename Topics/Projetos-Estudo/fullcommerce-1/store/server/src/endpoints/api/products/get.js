@@ -1,4 +1,6 @@
 const handleMysql = require('../../../modules/handles/mysql');
+const makeOrderby = require('./orderby');
+const makeLimit = require('./limit');
 
 
 
@@ -11,42 +13,66 @@ module.exports = async (reqQuery) => {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    data: await getProductById(+reqQuery.productId),
+                    data: await handleMysql(`SELECT * FROM products WHERE id = ${+reqQuery.productId}`),
                     message: "Success"
                 })
             };
         }
 
-        let orderby = '';
 
-        if (reqQuery.orderby) {
-            const orderbySplit = reqQuery.orderby.split(',');
-            const orderProp = orderbySplit[0].toLowerCase();
-            const orderType = orderbySplit[1].toUpperCase();
+        let apiResult = null;
 
-            const ordenationFields = ['price'];
-            const ordenationTypes = ['ASC', 'DESC'];
 
-            if (ordenationFields.indexOf(orderProp) !== -1) {
-                orderby += `ORDER BY ${orderProp}`;
 
-                if (ordenationTypes.indexOf(orderType) !== -1) {
-                    orderby += ` ${orderType}`;
+        if (reqQuery.filter) {
+            const filters = reqQuery.filter.split(',');
+
+            for (let i = 0; i < filters.length; i++) {
+                const filterResult = await handleMysql(`SELECT id FROM prodscharacts WHERE label = '${filters[i]}'`);
+
+                if (!apiResult) {
+                    apiResult = await handleMysql(`
+                        SELECT
+                            p.id, p.name, p.price,
+                            p.qtdStock, p.categoryId,
+                            p.imagePath, p.isActive
+                        FROM products as p
+                        INNER JOIN prods_prodscharacts as pcs
+                        ON pcs.prodcharactId = ${filterResult[0].id} AND p.id = pcs.productdId
+                        ${makeLimit(reqQuery.start, reqQuery.end)}
+                    `);
+                }
+                else {
+                    const products = (await handleMysql(`
+                        SELECT
+                            p.id
+                        FROM products as p
+                        INNER JOIN prods_prodscharacts as pcs
+                        ON pcs.prodcharactId = ${filterResult[0].id} AND p.id = pcs.productdId
+                    `)).map(product => product.id);
+
+                    apiResult = apiResult.filter(product => products.indexOf(product.id) !== -1);
                 }
             }
         }
 
+
         if (reqQuery.categoryId && !isNaN(+reqQuery.categoryId)) {
-            return {
-                status: 200,
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    data: await getProductsByCategoryId(+reqQuery.categoryId, reqQuery.startIndex, reqQuery.lastIndex, orderby),
-                    message: "Success"
-                })
-            };
+            if (apiResult) {
+                apiResult = apiResult.filter(product => product.categoryId === +reqQuery.categoryId);
+            }
+            else {
+                apiResult = await handleMysql(`SELECT * FROM products WHERE categoryId = ${+reqQuery.categoryId} ${makeLimit(reqQuery.start, reqQuery.end)}`)
+            }
+        }
+
+
+        if (reqQuery.orderby) {
+            const orderbySplit = reqQuery.orderby.split(':');
+            const field = orderbySplit[0];
+            const order = orderbySplit[1].toUpperCase();
+
+            makeOrderby(`${field}${order}`, apiResult);
         }
 
 
@@ -56,14 +82,14 @@ module.exports = async (reqQuery) => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                data: await getProducts(orderby),
+                data: apiResult,
                 message: "Success"
             })
         };
     }
     catch (error) {
-        console.error('[ERROR] - Error in get /api/products');
-        console.error(error);
+        console.log('[ERROR] - Error in get /api/products');
+        console.log(error);
         return {
             status: 500,
             headers: {
@@ -76,44 +102,3 @@ module.exports = async (reqQuery) => {
         };
     }
 };
-
-
-
-
-
-
-async function getProductsByCategoryId(_categoryId, _startIndex=0, _lastIndex, _orderby) {
-    try {
-        if (!_lastIndex || (_lastIndex - _startIndex) > +process.env.LIMIT_PRODUCTS_QUERY) {
-            _lastIndex = +process.env.LIMIT_PRODUCTS_QUERY + _startIndex;
-        }
-
-        const getProductsQuery = `SELECT * FROM products WHERE category_id = ${_categoryId} ${_orderby} LIMIT ${_startIndex},${_lastIndex}`;
-        return await handleMysql(getProductsQuery);
-    }
-    catch (error) {
-        return null;
-    }
-}
-
-
-async function getProductById(_productId) {
-    try {
-        const getProductsQuery = `SELECT * FROM products WHERE id = ${_productId}`;
-        return await handleMysql(getProductsQuery);
-    }
-    catch (error) {
-        return null;
-    }
-}
-
-
-async function getProducts(_orderby) {
-    try {
-        const getProductsQuery = `SELECT * FROM products ${_orderby} LIMIT 0,${+process.env.LIMIT_PRODUCTS_QUERY}`;
-        return await handleMysql(getProductsQuery);
-    }
-    catch (error) {
-        return null;
-    }
-}

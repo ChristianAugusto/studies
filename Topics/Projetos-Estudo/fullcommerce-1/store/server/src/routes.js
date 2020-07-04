@@ -1,5 +1,7 @@
 const path = require('path');
 
+const writeResponse = require('./modules/writeResponse');
+
 
 
 module.exports = function(app) {
@@ -22,27 +24,3 @@ module.exports = function(app) {
         writeResponse(await require('./endpoints/api/products/get')(req.query), res);
     })
 };
-
-
-function writeResponse(_respObj, res) {
-    if (_respObj.status) {
-        res.status(_respObj.status);
-    }
-    else {
-        res.status(500);
-    }
-
-    if (_respObj.headers) {
-        Object.entries(_respObj.headers).forEach(([name, value]) => res.setHeader(name, value));
-    }
-    else {
-        res.setHeader('Content-Type', 'text/html')
-    }
-
-    if (_respObj.body && typeof(_respObj.body) === 'string') {
-        res.send(_respObj.body);
-    }
-    else {
-        res.send('');
-    }
-}
