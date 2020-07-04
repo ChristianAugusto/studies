@@ -1,28 +1,53 @@
-CREATE TABLE IF NOT EXISTS burgerking.categories (
+CREATE TABLE IF NOT EXISTS categories (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
     slug VARCHAR(50) NOT NULL,
-    image_path VARCHAR(100),
+    imagePath VARCHAR(100),
+    isActive TINYINT(1) NOT NULL,
 
     PRIMARY KEY (id),
     UNIQUE KEY (slug)
 );
 
 
-CREATE TABLE IF NOT EXISTS burgerking.products (
+
+CREATE TABLE IF NOT EXISTS products (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     name VARCHAR(75) NOT NULL,
     price INT UNSIGNED NOT NULL,
-    qtd_stock INT UNSIGNED NOT NULL,
-    category_id INT UNSIGNED NOT NULL,
-    image_path VARCHAR(100),
+    qtdStock INT UNSIGNED NOT NULL,
+    categoryId INT UNSIGNED NOT NULL,
+    imagePath VARCHAR(100),
+    isActive TINYINT(1) NOT NULL,
 
     PRIMARY KEY (id),
-    FOREIGN KEY (category_id) REFERENCES categories (id)
+    FOREIGN KEY (categoryId) REFERENCES categories (id)
 );
 
 
-CREATE TABLE IF NOT EXISTS burgerking.users (
+
+CREATE TABLE IF NOT EXISTS prodscharacts (
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    label VARCHAR(50) NOT NULL,
+
+    PRIMARY KEY (id)
+);
+
+
+
+CREATE TABLE IF NOT EXISTS prods_prodscharacts (
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    productdId INT UNSIGNED NOT NULL,
+    prodcharactId INT UNSIGNED NOT NULL,
+
+    PRIMARY KEY (id),
+    FOREIGN KEY (productdId) REFERENCES products (id),
+    FOREIGN KEY (prodcharactId) REFERENCES prodscharacts (id)
+);
+
+
+
+CREATE TABLE IF NOT EXISTS users (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     name VARCHAR(200) NOT NULL,
     username VARCHAR(50) NOT NULL,
@@ -33,7 +58,8 @@ CREATE TABLE IF NOT EXISTS burgerking.users (
 );
 
 
-CREATE TABLE IF NOT EXISTS burgerking.address (
+
+CREATE TABLE IF NOT EXISTS address (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     local VARCHAR(200) NOT NULL,
     complement VARCHAR(50),
@@ -41,53 +67,32 @@ CREATE TABLE IF NOT EXISTS burgerking.address (
     city VARCHAR(100) NOT NULL,
     state VARCHAR(100) NOT NULL,
     cep VARCHAR(20),
-    user_id INT UNSIGNED NOT NULL,
+    userId INT UNSIGNED NOT NULL,
 
     PRIMARY KEY (id),
-    FOREIGN KEY (user_id) REFERENCES users (id)
+    FOREIGN KEY (userId) REFERENCES users (id)
 );
 
 
-CREATE TABLE IF NOT EXISTS burgerking.orders (
+
+CREATE TABLE IF NOT EXISTS orders (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    date_time DATETIME NOT NULL,
-    user_id INT UNSIGNED NOT NULL,
+    dateTime DATETIME NOT NULL,
+    userId INT UNSIGNED NOT NULL,
 
     PRIMARY KEY (id),
-    FOREIGN KEY (user_id) REFERENCES users (id)
+    FOREIGN KEY (userId) REFERENCES users (id)
 );
 
 
--- CREATE TABLE IF NOT EXISTS burgerking.order_user (
---     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
---     order_id INT UNSIGNED NOT NULL,
---     user_id INT UNSIGNED NOT NULL,
 
---     PRIMARY KEY (id),
---     FOREIGN KEY (order_id) REFERENCES orders (id),
---     FOREIGN KEY (user_id) REFERENCES users (id)
--- );
-
-
-
-CREATE TABLE IF NOT EXISTS burgerking.order_product (
+CREATE TABLE IF NOT EXISTS order_product (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-    order_id INT UNSIGNED NOT NULL,
-    product_id INT UNSIGNED NOT NULL,
-    product_qtd INT UNSIGNED NOT NULL,
+    orderId INT UNSIGNED NOT NULL,
+    productId INT UNSIGNED NOT NULL,
+    productQtd INT UNSIGNED NOT NULL,
 
     PRIMARY KEY (id),
-    FOREIGN KEY (order_id) REFERENCES orders (id),
-    FOREIGN KEY (product_id) REFERENCES products (id)
+    FOREIGN KEY (orderId) REFERENCES orders (id),
+    FOREIGN KEY (productId) REFERENCES products (id)
 );
-
-
--- CREATE TABLE IF NOT EXISTS burgerking.header_links (
---     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
---     destination VARCHAR(50) NOT NULL,
---     target VARCHAR(10) NOT NULL,
---     text VARCHAR(50) NOT NULL,
---     rel VARCHAR(20),
-
---     PRIMARY KEY (id)
--- );

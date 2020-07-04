@@ -2,6 +2,7 @@ version: '3.8'
 services:
     mysqlsrv:
         image: mysql:5.7.30
+        container_name: "fullcommerce-1_mysql"
         environment:
             MYSQL_ROOT_PASSWORD: "12345678"
         ports:
@@ -11,6 +12,7 @@ services:
         volumes:
             - ./database/mysql/server:/var/lib/mysql
     store:
+        container_name: "fullcommerce-1_store"
         build: ./store/server
         ports:
             - "80:3000"
