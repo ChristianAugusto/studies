@@ -48,17 +48,17 @@ function replacePlaceholders(_category, _categoryLayout, _shelfLayout) {
     let resultMatch;
 
 
-    while (resultMatch = _categoryLayout.match(/<store:shelf .*\/>/mi)) {
-        _categoryLayout = _categoryLayout.replace(/<store:shelf .*\/>/mi, replaceShelfs(resultMatch, _shelfLayout, _category.initialProducts))
+    while (resultMatch = _categoryLayout.match(/<store:shelf .*\/?>/mi)) {
+        _categoryLayout = _categoryLayout.replace(/<store:shelf .*\/?>/mi, replaceShelfs(resultMatch, _shelfLayout, _category.initialProducts))
     }
 
 
-    while (resultMatch = _categoryLayout.match(/<store:categoryName ?\/>/mi)) {
-        _categoryLayout = _categoryLayout.replace(/<store:categoryName ?\/>/mi, _category.info.name)
+    while (resultMatch = _categoryLayout.match(/<store:categoryName ?\/?>/mi)) {
+        _categoryLayout = _categoryLayout.replace(/<store:categoryName ?\/?>/mi, _category.info.name)
     }
 
-    while (resultMatch = _categoryLayout.match(/<store:categoryId ?\/>/mi)) {
-        _categoryLayout = _categoryLayout.replace(/<store:categoryId ?\/>/mi, _category.info.id)
+    while (resultMatch = _categoryLayout.match(/<store:categoryId ?\/?>/mi)) {
+        _categoryLayout = _categoryLayout.replace(/<store:categoryId ?\/?>/mi, _category.info.id)
     }
 
 
