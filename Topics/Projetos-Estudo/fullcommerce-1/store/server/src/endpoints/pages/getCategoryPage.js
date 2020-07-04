@@ -8,9 +8,9 @@ const replaceShelfs = require('../../modules/placeholders/replaceShelfs');
 
 module.exports = async (reqParams) => {
     try {
-        const category = await getProductsByCategorySlug(reqParams.categorySlug);
+        const categoryInfo = await getCategoryInfo(reqParams.categorySlug);
 
-        if (!category || !category.initialProducts || category.initialProducts.length == 0) {
+        if (!categoryInfo || !categoryInfo.initialProducts || categoryInfo.initialProducts.length == 0) {
             console.log('[ERROR] - No products for category slug')
             throw new Error();
         }
@@ -23,7 +23,7 @@ module.exports = async (reqParams) => {
             headers: {
                 'Content-Type': 'text/html'
             },
-            body: replacePlaceholders(category, categoryLayout, shelfLayout)
+            body: replacePlaceholders(categoryInfo, categoryLayout, shelfLayout)
         };
     }
     catch (error) {
@@ -49,16 +49,16 @@ function replacePlaceholders(_category, _categoryLayout, _shelfLayout) {
 
 
     while (resultMatch = _categoryLayout.match(/<store:shelf .*\/?>/mi)) {
-        _categoryLayout = _categoryLayout.replace(/<store:shelf .*\/?>/mi, replaceShelfs(resultMatch, _shelfLayout, _category.initialProducts))
+        _categoryLayout = _categoryLayout.replace(/<store:shelf .*\/?>/mi, replaceShelfs(resultMatch, _shelfLayout, _category.initialProducts));
     }
 
 
     while (resultMatch = _categoryLayout.match(/<store:categoryName ?\/?>/mi)) {
-        _categoryLayout = _categoryLayout.replace(/<store:categoryName ?\/?>/mi, _category.info.name)
+        _categoryLayout = _categoryLayout.replace(/<store:categoryName ?\/?>/mi, _category.info.name);
     }
 
     while (resultMatch = _categoryLayout.match(/<store:categoryId ?\/?>/mi)) {
-        _categoryLayout = _categoryLayout.replace(/<store:categoryId ?\/?>/mi, _category.info.id)
+        _categoryLayout = _categoryLayout.replace(/<store:categoryId ?\/?>/mi, _category.info.id);
     }
 
 
@@ -67,7 +67,7 @@ function replacePlaceholders(_category, _categoryLayout, _shelfLayout) {
 
 
 
-async function getProductsByCategorySlug(_categorySlug, _startIndex=0, _lastIndex) {
+async function getCategoryInfo(_categorySlug, _startIndex=0, _lastIndex) {
     try {
         if (!_lastIndex || (_lastIndex - _startIndex) > +process.env.LIMIT_PRODUCTS_QUERY) {
             _lastIndex = +process.env.LIMIT_PRODUCTS_QUERY + _startIndex;
@@ -79,6 +79,10 @@ async function getProductsByCategorySlug(_categorySlug, _startIndex=0, _lastInde
 
         const getProductsQuery = `SELECT id,name,price,qtdStock,imagePath FROM products WHERE categoryId = ${categoryInfo.id} LIMIT ${_startIndex},${_lastIndex}`;
         const initialProducts = await handleMysql(getProductsQuery);
+
+
+        
+
 
         return {
             info: categoryInfo,
