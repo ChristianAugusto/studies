@@ -1,4 +1,5 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPugPlugin = require('html-webpack-pug-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
@@ -43,8 +44,8 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     ...pages.map(page => new HtmlWebpackPlugin({
+      template: `./views/${page}.pug`,
       filename: `${page}.html`,
-      template: `./views/${page}.html`,
       minify: {
         collapseWhitespace: false,
         removeComments: true,
@@ -55,7 +56,8 @@ module.exports = {
       },
       chunks: [`${page}`],
       xhtml: true
-    }))
+    })),
+    new HtmlWebpackPugPlugin()
   ],
   optimization: {
     minimizer: [

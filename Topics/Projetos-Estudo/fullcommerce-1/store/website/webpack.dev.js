@@ -1,5 +1,4 @@
 const common = require('./webpack.common');
-const path   = require('path');
 const merge  = require('webpack-merge');
 
 
@@ -12,7 +11,7 @@ module.exports = merge (common, {
     proxy: {
       '/': 'http://localhost'
     },
-    open: true,
+    open: false,
     compress: true,
     liveReload: true,
     historyApiFallback: true

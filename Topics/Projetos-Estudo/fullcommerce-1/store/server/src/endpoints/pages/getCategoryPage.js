@@ -8,9 +8,9 @@ const replaceShelfs = require('../../modules/placeholders/replaceShelfs');
 
 module.exports = async (reqParams) => {
     try {
-        const categoryInfo = await getCategoryInfo(reqParams.categorySlug);
+        const category = await getCategoryInfo(reqParams.categorySlug);
 
-        if (!categoryInfo || !categoryInfo.initialProducts || categoryInfo.initialProducts.length == 0) {
+        if (!category || !category.initialProducts || category.initialProducts.length == 0) {
             console.log('[ERROR] - No products for category slug')
             throw new Error();
         }
@@ -23,7 +23,7 @@ module.exports = async (reqParams) => {
             headers: {
                 'Content-Type': 'text/html'
             },
-            body: replacePlaceholders(categoryInfo, categoryLayout, shelfLayout)
+            body: replacePlaceholders(category, categoryLayout, shelfLayout)
         };
     }
     catch (error) {
@@ -61,6 +61,10 @@ function replacePlaceholders(_category, _categoryLayout, _shelfLayout) {
         _categoryLayout = _categoryLayout.replace(/<store:categoryId ?\/?>/mi, _category.info.id);
     }
 
+    while (resultMatch = _categoryLayout.match(/<store:categoryFilters ?\/?>/mi)) {
+        _categoryLayout = _categoryLayout.replace(/<store:categoryFilters ?\/?>/mi, buildCategoryFilters(_category.filters));
+    }
+
 
     return _categoryLayout;
 }
@@ -81,15 +85,47 @@ async function getCategoryInfo(_categorySlug, _startIndex=0, _lastIndex) {
         const initialProducts = await handleMysql(getProductsQuery);
 
 
-        
+        const getProducsCharactsQuery = `
+            SELECT
+                prodscharacts.label
+            FROM prods_prodscharacts
+            INNER JOIN prodscharacts
+            ON prods_prodscharacts.prodcharactId = prodscharacts.id
+            INNER JOIN products
+            ON products.id = prods_prodscharacts.productdId AND products.categoryId = ${categoryInfo.id}
+        `;
+
+
+        const allProductsCharacts = await handleMysql(getProducsCharactsQuery);
+
+        const filters = [];
+
+        allProductsCharacts.forEach(({ label }) => {
+            if (filters.indexOf(label) === -1) {
+                filters.push(label);
+            }
+        });
 
 
         return {
             info: categoryInfo,
-            initialProducts
+            initialProducts,
+            filters
         };
     }
     catch (error) {
         return null;
     }
+}
+
+
+function buildCategoryFilters(_filters) {
+    const filtersItems = _filters.reduce((acc, filter) => acc + `
+        <li>
+            <h6>${filter}</h6>
+        </li>
+    `, '');
+
+
+    return `<ul class="category__filters">${filtersItems}</ul>`;
 }

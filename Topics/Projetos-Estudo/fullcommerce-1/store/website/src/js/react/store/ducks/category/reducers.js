@@ -3,9 +3,13 @@ import types from './types';
 
 
 const INITIAL_STATE = {
-    filter: null,
+    name: null,
+    products: null,
+    filters: null,
+    filterQuery: null,
+    orderby: null,
     totalItems: null,
-    products: []
+    headingTags: null
 };
 
 

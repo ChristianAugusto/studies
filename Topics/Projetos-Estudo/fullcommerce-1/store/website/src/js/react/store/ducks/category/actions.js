@@ -8,24 +8,33 @@ export function addProducts(products) {
 
 export function initCategory() {
     const pageInfo = document.createElement('div');
-    pageInfo.innerHTML = document.querySelector('#pageInfo').innerHTML;
+    pageInfo.innerHTML = document.querySelector('#pageInfo').innerHTML.trim();
 
 
-    const shelfItems = pageInfo.querySelectorAll('.shelf .shelf__item');
-
-
+    const shelfItems = pageInfo.querySelectorAll('.shelf > li');
     const products = [];
-
     for (let i = 0; i < shelfItems.length; i++) {
         products.push({
-            name: shelfItems[i].querySelector('.product__name').textContent,
-            price: shelfItems[i].querySelector('.product__price').textContent
+            name: shelfItems[i].querySelector('.product__name').textContent.trim(),
+            price: shelfItems[i].querySelector('.product__price').textContent.trim()
         });
     }
 
 
+    const filterItems = pageInfo.querySelectorAll('.category__filters > li h6');
+    const filters = [];
+    for (let i = 0; i < filterItems.length; i++) {
+        filters.push(filterItems[i].textContent.trim());
+    }
+
+
+    const name = pageInfo.querySelector('#categoryName').textContent.trim();
+
+
     return {
-        type: "ADD_PRODUCTS",
-        products
+        type: "INIT_CATEGORY",
+        name,
+        products,
+        filters
     };
 }
