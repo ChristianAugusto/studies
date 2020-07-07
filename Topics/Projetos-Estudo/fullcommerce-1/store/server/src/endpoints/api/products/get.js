@@ -13,7 +13,7 @@ module.exports = async (reqQuery) => {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    data: await handleMysql(`SELECT * FROM products WHERE id = ${+reqQuery.productId}`),
+                    data: await handleMysql(`SELECT * FROM products WHERE id = ${+reqQuery.productId} AND isActive = 1`),
                     message: "Success"
                 })
             };
@@ -28,17 +28,13 @@ module.exports = async (reqQuery) => {
             const filters = reqQuery.filter.split(',');
 
             for (let i = 0; i < filters.length; i++) {
-                const filterResult = await handleMysql(`SELECT id FROM prodscharacts WHERE label = '${filters[i]}'`);
+                const filterResult = await handleMysql(`SELECT id FROM products_characts WHERE label = '${filters[i]}'`);
 
                 if (!apiResult) {
                     apiResult = await handleMysql(`
-                        SELECT
-                            p.id, p.name, p.price,
-                            p.qtdStock, p.categoryId,
-                            p.imagePath, p.isActive
-                        FROM products as p
-                        INNER JOIN prods_prodscharacts as pcs
-                        ON pcs.prodcharactId = ${filterResult[0].id} AND p.id = pcs.productdId
+                        SELECT p.* FROM products as p
+                        INNER JOIN product_characts as pdcs
+                        ON pdcs.charactId = ${filterResult[0].id} AND p.id = pdcs.productId AND p.isActive = 1
                         ${makeLimit(reqQuery.start, reqQuery.end)}
                     `);
                 }
@@ -47,8 +43,8 @@ module.exports = async (reqQuery) => {
                         SELECT
                             p.id
                         FROM products as p
-                        INNER JOIN prods_prodscharacts as pcs
-                        ON pcs.prodcharactId = ${filterResult[0].id} AND p.id = pcs.productdId
+                        INNER JOIN product_characts as pdcs
+                        ON pdcs.charactId = ${filterResult[0].id} AND p.id = pdcs.productId AND p.isActive = 1
                     `)).map(product => product.id);
 
                     apiResult = apiResult.filter(product => products.indexOf(product.id) !== -1);
@@ -62,7 +58,7 @@ module.exports = async (reqQuery) => {
                 apiResult = apiResult.filter(product => product.categoryId === +reqQuery.categoryId);
             }
             else {
-                apiResult = await handleMysql(`SELECT * FROM products WHERE categoryId = ${+reqQuery.categoryId} ${makeLimit(reqQuery.start, reqQuery.end)}`)
+                apiResult = await handleMysql(`SELECT * FROM products WHERE categoryId = ${+reqQuery.categoryId} AND isActive = 1 ${makeLimit(reqQuery.start, reqQuery.end)}`)
             }
         }
 

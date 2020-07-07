@@ -10,9 +10,9 @@ services:
         expose:
             - "3306"
         volumes:
-            - ./database/mysql/server:/var/lib/mysql
-    store:
-        container_name: "fullcommerce-1_store"
+            - ./store/databases/mysql/server:/var/lib/mysql
+    website:
+        container_name: "fullcommerce-1_website"
         build: ./store/server
         ports:
             - "80:3000"
