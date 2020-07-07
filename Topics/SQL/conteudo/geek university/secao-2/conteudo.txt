@@ -1,0 +1,28 @@
+Dado = Elemento bruto gerado a partir de uma entrada de usuário ou de outros sistemas.
+
+Informação = Elemento processado (lapidado) constituído de dados.
+
+
+======================================================================================================================================================
+
+
+Banco de dados relacionais:
+    Os dados são inseridos a partir de moldes chamados tabelas,
+    essas tabelas podem se relacionar entre si (1-1, 1-n, n-n).
+    SGBDRs (Sistemas gerenciadores de banco de dados)
+
+Banco não relacionais:
+    Existem vários tipos, mas neles não existem tabelas
+    e relacionamento de tabelas.
+
+
+Entidade (tabela):
+    Objeto ou evento do mundo real sobre o qual
+    desejamos manter registros em um banco de dados.
+    Cada entidade possui seus atributos (campo, coluna).
+
+
+
+======================================================================================================================================================
+
+

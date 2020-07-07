@@ -1,0 +1,14 @@
+Subgrupos do SQL:
+
+DQL = data query language
+    Temos apenas o comando SELECT
+
+
+DML = data manipulation language
+    Comandos:
+        INSERT -> insere um registro(linha) na tabela
+        UPDATE -> altera registro(s) de uma tabela
+        DELETE -> deleta registro(s) de uma tabela
+
+
+======================================================================================================================================================

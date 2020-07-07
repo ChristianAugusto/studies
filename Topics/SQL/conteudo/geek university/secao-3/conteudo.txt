@@ -1,0 +1,24 @@
+Relacionamentos binários
+    1-1, 1-n, n-n
+
+
+Primeira forma normal (1FN):
+    Se na entidade os campos forem atômicos (simples) e não multivalorados.
+
+
+Segunda forma normal (2FN):
+    Se encontrar na 1FN e se todos os atributos não chave forem totalmente dependendes do chave primária.
+
+
+Terceira forma normal (3FN):
+    Já estar na 2FN e se não há campos que conseguimos puxar com um relacionamento para outra tabela.
+
+
+======================================================================================================================================================
+
+
+Recomendação para nome de tabelas:
+    Letras minúsculas
+    Plural ou singular
+    Nomes compostos usar _
+    Colunas com camel case
