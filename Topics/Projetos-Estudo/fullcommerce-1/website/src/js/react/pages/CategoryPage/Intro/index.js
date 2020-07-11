@@ -8,7 +8,6 @@ import * as S from './styled';
 const Intro = () => {
     const { name:categoryName } = useSelector(state => state.category);
 
-
     return (
         <S.IntroWrapper>
             <h1>{categoryName}</h1>

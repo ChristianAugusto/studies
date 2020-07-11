@@ -3,7 +3,8 @@ extends ./_configbase.pug
 
 //- Template variables
 block append vars
-    - var $templateClass = "categoryPage"
+    - var template = "category"
+    - var templateClass = "categoryPage"
 
 
 //- Head Content
@@ -11,12 +12,19 @@ block append head
     title
         <store:categoryName/>
 
+
 //- Main Content
 block append content
     noscript(id="pageInfo", class="hidden-heading")
+        <store:header/>
         h1(id="categoryName")
             <store:categoryName/>
         p(id="categoryId")
             <store:categoryId/>
         <store:shelf class="shelf-category" productsQtd="16"/>
         <store:categoryFilters/>
+
+
+//- Scripts
+block append scripts
+    script(src=`/js/${storeName}-${template}.js`)

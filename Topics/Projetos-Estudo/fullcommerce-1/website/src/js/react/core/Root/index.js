@@ -12,14 +12,8 @@ const Root = ({ children }) => (
     </Provider>
 );
 
-
 Root.propTypes = {
-    name: PropTypes.string,
-    children: PropTypes.oneOfType([
-        PropTypes.arrayOf(PropTypes.node),
-        PropTypes.node,
-        PropTypes.string,
-    ]).isRequired,
+    children: PropTypes.element
 };
 
 

@@ -1,5 +1,5 @@
 block vars
-- var $storeName = "burgerking"
+- var storeName = "burgerking"
 
 
 
@@ -23,9 +23,9 @@ html(lang="pt-br")
             link(rel="stylesheet", href="/css/burgerking-message.css")/
 
     body
-        include ./partials/general/message.pug
+        include ./partials/global/message.pug
         main(id="main", role="main")
-            div(id=`${$templateClass}`)
+            div(id=`${templateClass}`)
             block content
 
 

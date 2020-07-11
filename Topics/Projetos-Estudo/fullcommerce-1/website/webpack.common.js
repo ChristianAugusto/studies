@@ -1,7 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackPugPlugin = require('html-webpack-pug-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
 
 
@@ -10,8 +9,8 @@ const pages = ['home', 'category'].map(page => `${storename}-${page}`);
 
 module.exports = {
   entry: {
-    "burgerking-home": './src/js/burgerking-home.js',
-    "burgerking-category": './src/js/burgerking-category.js',
+    'burgerking-home': './src/js/burgerking-home.js',
+    'burgerking-category': './src/js/burgerking-category.js',
   },
   output: {
     publicPath: '/js/',
@@ -38,11 +37,17 @@ module.exports = {
           'css-loader',
           'sass-loader'
         ]
+      },
+      {
+        test: /\.pug$/,
+        use: [
+          'raw-loader',
+          'pug-html-loader'
+        ]
       }
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(),
     ...pages.map(page => new HtmlWebpackPlugin({
       template: `./views/${page}.pug`,
       filename: `${page}.html`,
@@ -54,7 +59,8 @@ module.exports = {
         removeStyleLinkTypeAttributes: false,
         useShortDoctype: true
       },
-      chunks: [`${page}`],
+      // chunks: [`${page}`],
+      chunks: [],
       xhtml: true
     })),
     new HtmlWebpackPugPlugin()

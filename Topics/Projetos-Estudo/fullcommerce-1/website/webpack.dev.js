@@ -9,7 +9,7 @@ module.exports = merge (common, {
   devServer: {
     port: 3000,
     proxy: {
-      '/': 'http://localhost'
+      '/': 'http://localhost:5000'
     },
     open: false,
     compress: true,

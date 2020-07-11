@@ -7,6 +7,8 @@ import { transform, displayColumn } from '@Styles/mixins';
 export const HeaderWrapper = styled.header`
     width: 100%;
     height: auto;
+    box-sizing: border-box;
+    padding-bottom: 27px;
 `;
 
 

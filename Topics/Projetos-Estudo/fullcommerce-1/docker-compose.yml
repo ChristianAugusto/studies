@@ -1,11 +1,11 @@
 version: '3.8'
 services:
-  fullcomerce-1:
-    container_name: "fullcomerce-1"
+  fullcommerce-1:
+    container_name: "fullcommerce-1"
     build: ./
-    image: fullcomerce-1:latest
-    environment:
-      MYSQL_ROOT_PASSWORD: "12345678"
+    image: fullcommerce-1:latest
+    env_file:
+    - fullcommerce-1.env
     ports:
       - "5000:80"
       - "5001:3306"
@@ -14,4 +14,4 @@ services:
       - "3306"
     volumes:
       - ./mysql:/var/lib/mysql
-      - ./apps:/apps
+      - ./fullcommerce:/fullcommerce
