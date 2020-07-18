@@ -5,8 +5,8 @@ import * as S from './styled';
 
 
 
-const ShelfItem = ({ product }) => {
-    console.log('product', product);
+const ShelfItem = ({ product, addCart }) => {
+
 
 
     return (
@@ -19,7 +19,11 @@ const ShelfItem = ({ product }) => {
                     <h2 className="product__name">{product.name}</h2>
                 </div>
                 <div className="product__actions">
-                    <button className="product__buy-button">Adicionar na sacola</button>
+                    {
+                        addCart ? 
+                        '' :
+                        <a className="product__buy-button reset" href={`/loja/product/${product.id}`}>Ver detalhes</a>
+                    }
                 </div>
             </article>
         </S.ShelfItemWrapper>
@@ -27,7 +31,8 @@ const ShelfItem = ({ product }) => {
 };
 
 ShelfItem.propTypes = {
-    product: PropTypes.object
+    product: PropTypes.object,
+    addCart: PropTypes.bool
 };
 
 

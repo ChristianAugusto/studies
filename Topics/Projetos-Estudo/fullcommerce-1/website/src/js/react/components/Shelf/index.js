@@ -6,16 +6,16 @@ import * as S from './styled';
 
 
 
-const Shelf = ({ products, columns }) => {
+const Shelf = ({ products, columns, addCart }) => {
 
-    function buildShelf(_products, _columns) {
+    function buildShelf(_products, _columns, _addCart) {
         const ShelfRows = [];
 
         for (let i = 0; i < _products.length;) {
             const shelfItems = [];
 
             for (let j = 0; j < _columns && i < _products.length; j++, i++) {
-                shelfItems.push(<ShelfItem key={_products[i].id} product={_products[i]} />);
+                shelfItems.push(<ShelfItem key={_products[i].id} product={_products[i]} addCart={_addCart} />);
             }
 
             ShelfRows.push(<ul key={ShelfRows.length} className="shelf__products">{shelfItems}</ul>);
@@ -27,14 +27,15 @@ const Shelf = ({ products, columns }) => {
 
     return (
         <S.ShelfWrapper className="shelf">
-            {buildShelf(products, columns)}
+            {buildShelf(products, columns, addCart)}
         </S.ShelfWrapper>
     );
 };
 
 Shelf.propTypes = {
     products: PropTypes.array,
-    columns: PropTypes.number
+    columns: PropTypes.number,
+    addCart: PropTypes.bool
 };
 
 

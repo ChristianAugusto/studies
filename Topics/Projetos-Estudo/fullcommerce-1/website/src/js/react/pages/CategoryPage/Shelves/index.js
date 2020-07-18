@@ -12,7 +12,7 @@ const Shelves = () => {
 
     return (
         <S.ShelvesWrapper>
-            <Shelf products={products ? products : []} columns={3} />
+            <Shelf products={products ? products : []} columns={3} addCart={false} />
         </S.ShelvesWrapper>
     );
 };

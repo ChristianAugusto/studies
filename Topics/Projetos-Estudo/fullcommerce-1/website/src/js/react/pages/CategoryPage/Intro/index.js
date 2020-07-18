@@ -10,7 +10,7 @@ const Intro = () => {
 
     return (
         <S.IntroWrapper>
-            <h1>{categoryName}</h1>
+            <h1 className="category__intro__name">{categoryName || ''}</h1>
         </S.IntroWrapper>
     );
 };

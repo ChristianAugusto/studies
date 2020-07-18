@@ -5,7 +5,7 @@ import { displayRow } from '@Styles/mixins';
 
 
 export const ShelvesWrapper = styled.div`
-    width: 75%;
+    width: 65%;
     height: auto;
 
     .shelf {

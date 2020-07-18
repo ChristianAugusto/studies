@@ -92,7 +92,7 @@ async function getCategoryInfo(_categorySlug, _startIndex=0, _lastIndex) {
 
 
         const getProducsCharactsQuery = `
-            SELECT
+            SELECT DISTINCT
                 products_characts.label
             FROM
                 products_characts, products, product_characts
@@ -105,12 +105,8 @@ async function getCategoryInfo(_categorySlug, _startIndex=0, _lastIndex) {
 
         const allProductsCharacts = await handleMysql(getProducsCharactsQuery);
 
-        const filters = [];
-
-        allProductsCharacts.forEach(({ label }) => {
-            if (filters.indexOf(label) === -1) {
-                filters.push(label);
-            }
+        const filters = allProductsCharacts.map(({ label }) => {
+            return label;
         });
 
 
