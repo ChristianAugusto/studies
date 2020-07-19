@@ -1,11 +1,15 @@
-module.exports = (_start=0, _end) => {
-    if (!_end) {
-        _end = +process.env.LIMIT_PRODUCTS_QUERY + _start;
+module.exports = (_apiResult, _indexStart, _indexEnd) => {
+    if (!_indexStart) {
+        _indexStart = 0;
     }
 
-    if (_end - _start > +process.env.LIMIT_PRODUCTS_QUERY) {
-        _end = +process.env.LIMIT_PRODUCTS_QUERY + _start;
+    if (!_indexEnd) {
+        _indexEnd = +process.env.LIMIT_PRODUCTS_QUERY + _indexStart;
     }
 
-    return `LIMIT ${_start},${_end}`;
+    if (_indexEnd - _indexStart > +process.env.LIMIT_PRODUCTS_QUERY) {
+        _indexEnd = +process.env.LIMIT_PRODUCTS_QUERY + _indexStart;
+    }
+
+    return _apiResult.slice(_indexStart, _indexEnd);
 };

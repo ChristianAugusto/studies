@@ -20,8 +20,10 @@ module.exports = async (reqQuery) => {
         }
 
 
-        let apiResult = null;
+        const indexStart = reqQuery.start ? +reqQuery.start : null;
+        const indexEnd = reqQuery.end ? +reqQuery.end : null;
 
+        let apiResult = null;
 
 
         if (reqQuery.filter) {
@@ -35,7 +37,6 @@ module.exports = async (reqQuery) => {
                         SELECT p.* FROM products as p
                         INNER JOIN product_characts as pdcs
                         ON pdcs.charactId = ${filterResult[0].id} AND p.id = pdcs.productId AND p.isActive = 1
-                        ${makeLimit(reqQuery.start, reqQuery.end)}
                     `);
                 }
                 else {
@@ -58,9 +59,12 @@ module.exports = async (reqQuery) => {
                 apiResult = apiResult.filter(product => product.categoryId === +reqQuery.categoryId);
             }
             else {
-                apiResult = await handleMysql(`SELECT * FROM products WHERE categoryId = ${+reqQuery.categoryId} AND isActive = 1 ${makeLimit(reqQuery.start, reqQuery.end)}`)
+                apiResult = await handleMysql(`SELECT * FROM products WHERE categoryId = ${+reqQuery.categoryId} AND isActive = 1`)
             }
         }
+
+        totalResults = apiResult.length;
+        apiResult = makeLimit(apiResult, indexStart, indexEnd);
 
 
         if (reqQuery.orderby) {
@@ -79,6 +83,7 @@ module.exports = async (reqQuery) => {
             },
             body: JSON.stringify({
                 data: apiResult,
+                totalResults: totalResults,
                 message: "Success"
             })
         };
