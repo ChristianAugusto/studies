@@ -1,0 +1,15 @@
+{
+    "taskTag": "client",
+    "type": "csv",
+    "csv": {
+        "header": ["id", "name", "weight", "height", "image_front_default", "image_back_default", "type(s)"]
+    },
+    "destinations": [
+        {
+            "type": "default",
+            "credentials": null,
+            "mask": "{date}-client",
+            "upload_path": "/teste"
+        }
+    ]
+}
