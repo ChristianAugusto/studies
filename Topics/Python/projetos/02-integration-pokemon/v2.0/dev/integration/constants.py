@@ -9,3 +9,5 @@ TIMEZONE_DEFAULT = 'America/Sao_Paulo' # see timezones in pytz.all_timezone
 ENVIRONMENTS = ['dev', 'prod']
 
 LIMIT_POKEMONS = 50
+
+INTERVAL_REQUISITIONS = 0.4

@@ -2,7 +2,19 @@
     "taskTag": "client",
     "type": "csv",
     "csv": {
-        "header": ["id", "name", "weight", "height", "image_front_default", "image_back_default", "type(s)"]
+        "header": ["id", "name", "weight", "height", "image_front_default", "image_back_default", "type(s)"],
+        "fields": [
+            ["id"],
+            ["name"],
+            ["weight"],
+            ["height"],
+            ["sprites", "front_default"],
+            ["sprites", "back_default"],
+            ["types", "type", "name"]
+        ]
+    },
+    "devDestination": {
+        "mask": "{date}-client"
     },
     "destinations": [
         {

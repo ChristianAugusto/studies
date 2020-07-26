@@ -10,8 +10,8 @@ def get_total_pokemons():
         "method": "GET",
         "url": "https://pokeapi.co/api/v2/pokemon",
         "headers": {
-            "Accept": "application/application/json",
-            "Content-Type": "application/application/json"
+            "Accept": "application/json",
+            "Content-Type": "application/json"
         },
         "params": {
             "limit": 1,
@@ -29,8 +29,8 @@ def get_pokemons(offset):
         "method": "GET",
         "url": "https://pokeapi.co/api/v2/pokemon",
         "headers": {
-            "Accept": "application/application/json",
-            "Content-Type": "application/application/json"
+            "Accept": "application/json",
+            "Content-Type": "application/json"
         },
         "params": {
             "limit": LIMIT_POKEMONS,
@@ -41,3 +41,18 @@ def get_pokemons(offset):
 
     req = request(**config)
     return req.json()["results"]
+
+
+def get_pokemon(name):
+    config = {
+        "method": "GET",
+        "url": f"https://pokeapi.co/api/v2/pokemon/{name}",
+        "headers": {
+            "Accept": "application/json",
+            "Content-Type": "application/json"
+        },
+        "timeout": 120
+    }
+
+    req = request(**config)
+    return req.json()
