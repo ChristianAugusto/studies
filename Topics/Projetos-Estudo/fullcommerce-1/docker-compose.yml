@@ -1,17 +1,25 @@
 version: '3.8'
 services:
-  fullcommerce-1:
-    container_name: "fullcommerce-1"
-    build: ./
-    image: fullcommerce-1:latest
+  fullcommerce_1-mysql:
+    container_name: "fullcommerce_1-mysql"
+    image: mysql:5.7.30
     env_file:
-    - fullcommerce-1.env
+      - fullcommerce_1-mysql.env
     ports:
-      - "5000:80"
-      - "5001:3306"
+      - "3001:3306"
     expose:
-      - "80"
-      - "3306"
+      - 3306
     volumes:
-      - ./mysql:/var/lib/mysql
-      - ./fullcommerce:/fullcommerce
+      - ./fullcommerce/store/databases/mysql/server:/var/lib/mysql
+  fullcommerce_1-store_api:
+    container_name: "fullcommerce_1-store_api"
+    build: ./fullcommerce/store/api
+    image: fullcommerce_1-store_api
+    ports:
+      - "3000:80"
+    command: npm run dev
+    # command: npm start
+    expose:
+      - 80
+    volumes:
+      - ./fullcommerce/store/api:/api

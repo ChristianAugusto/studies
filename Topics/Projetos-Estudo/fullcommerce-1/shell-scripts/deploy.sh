@@ -1,7 +1,3 @@
-cd website
-source deploy-website.sh
-cd ..
-sudo docker container rm -f fullcommerce-1
-# sudo docker image rm -f fullcommerce-1:latest
+sudo docker container rm -f fullcommerce_1-store_api fullcommerce_1-store_website fullcommerce_1-mysql
+sudo docker image rm fullcommerce_1-store_api:latest
 sudo docker-compose up -d
-# sudo docker exec -it fullcommerce-1 bash
