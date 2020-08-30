@@ -11,24 +11,23 @@ func main() {
 		fmt.Println("menor que 100")
 	}
 
-	if (x < 100) {
+	if x < 100 {
 		fmt.Println("menor que 100")
 	}
 
 	/*
-	if (x < 0) {
-		fmt.Println("negativo")
-	}
-	else if x == 0 {
-		fmt.Println("zero")
-	}
-	else {
-		fmt.Println("positivo")
-	}
+		if (x < 0) {
+			fmt.Println("negativo")
+		}
+		else if x == 0 {
+			fmt.Println("zero")
+		}
+		else {
+			fmt.Println("positivo")
+		}
 	*/ // Erro na posição do else
 
-
-	if (x < 0) {
+	if x < 0 {
 		fmt.Println("negativo")
 	} else if x == 0 {
 		fmt.Println("zero")

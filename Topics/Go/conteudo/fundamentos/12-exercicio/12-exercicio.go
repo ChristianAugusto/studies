@@ -4,12 +4,10 @@ import (
 	"fmt"
 )
 
-
 func main() {
 	type foo int
 
 	var x foo
-
 
 	fmt.Printf("%v, %T\n", x, x)
 

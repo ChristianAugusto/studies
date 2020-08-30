@@ -4,10 +4,10 @@ import "fmt"
 
 func main() {
 	/*
-	:=
+		:=
 
-	- O símbolo (marmota) de declaração infere o tipo pelo falor que foi passado
-	- Só é possível usa-lo dentro de um bloco de código
+		- O símbolo (marmota) de declaração infere o tipo pelo falor que foi passado
+		- Só é possível usa-lo dentro de um bloco de código
 
 	*/
 
@@ -17,10 +17,8 @@ func main() {
 
 	fmt.Println(a, b, c)
 
-
 	fmt.Printf("a) valor: %v, tipo: %T\n", a, a)
 	fmt.Printf("b) valor: %v, tipo: %T\n", b, b)
-
 
 	// a := 10 // Erro, não pode redeclarar
 	// a = 10 // Apenas uma atribuação
