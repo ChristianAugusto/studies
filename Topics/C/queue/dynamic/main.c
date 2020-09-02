@@ -65,9 +65,9 @@ boolean enqueue(Queue* queue, Element* element) {
     return true;
 }
 
-Element* dequeue(Queue* queue) {
+void dequeue(Queue* queue) {
     if (emptyQueue(queue)) {
-        return NULL;
+        return;
     }
 
     Element* aux;
@@ -83,7 +83,7 @@ Element* dequeue(Queue* queue) {
 
     queue->size--;
 
-    return aux;
+    free(aux);
 }
 
 Element* peek(Queue* queue) {
