@@ -17,5 +17,5 @@ func main() {
 
 	fmt.Printf("%T\n", x)
 
-	fmt.Println("len(x) = ", len(x))
+	fmt.Println("len(x) =", len(x))
 }
