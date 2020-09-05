@@ -10,16 +10,4 @@ services:
     expose:
       - 3306
     volumes:
-      - ./fullcommerce/store/databases/mysql/server:/var/lib/mysql
-  fullcommerce_1-store_api:
-    container_name: "fullcommerce_1-store_api"
-    build: ./fullcommerce/store/api
-    image: fullcommerce_1-store_api
-    ports:
-      - "3000:80"
-    command: npm run dev
-    # command: npm start
-    expose:
-      - 80
-    volumes:
-      - ./fullcommerce/store/api:/api
+      - ./fullcommerce/databases/mysql/server:/var/lib/mysql

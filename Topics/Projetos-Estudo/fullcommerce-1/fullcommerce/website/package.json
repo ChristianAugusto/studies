@@ -1,0 +1,30 @@
+{
+    "name": "burgerking-website",
+    "version": "1.0.0",
+    "description": "Burgerking website",
+    "scripts": {
+        "dev": "next",
+        "build": "next build",
+        "start": "next start"
+    },
+    "author": "Christian Augustos Martins dos Santos Barros",
+    "license": "MIT",
+    "dependencies": {
+        "@babel/core": "7.10.5",
+        "@babel/plugin-proposal-object-rest-spread": "7.10.4",
+        "@babel/preset-env": "7.10.4",
+        "@babel/preset-react": "7.10.4",
+        "babel-plugin-module-resolver": "4.0.0",
+        "babel-plugin-styled-components": "1.10.7",
+        "babel-plugin-transform-class-properties": "6.24.1",
+        "mysql": "2.18.1",
+        "next": "9.4.4",
+        "react": "16.13.1",
+        "react-dom": "16.13.1",
+        "react-input-mask": "2.0.4",
+        "react-redux": "7.2.0",
+        "react-scripts": "3.4.1",
+        "redux": "4.0.5",
+        "styled-components": "5.1.1"
+    }
+}
