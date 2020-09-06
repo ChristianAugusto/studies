@@ -1,4 +1,8 @@
-const mysql = require('mysql');
+import mysql from 'mysql';
+
+import logger from '@Utils/logger';
+
+
 
 const {
     MYSQL_HOST,
@@ -10,10 +14,10 @@ const {
 
 
 
-module.exports = (_query) => new Promise((resolve, reject) => {
+export default (_query) => new Promise((resolve, reject) => {
     const connection = mysql.createConnection({
         host: MYSQL_HOST,
-        port: +MYSQL_PORT,
+        port: MYSQL_PORT,
         user: MYSQL_USER,
         password: MYSQL_PASSWORD,
         database: MYSQL_DATABASE
@@ -21,14 +25,18 @@ module.exports = (_query) => new Promise((resolve, reject) => {
 
     connection.connect((err) => {
         if (err) {
-            console.log(err);
+            logger.error('Error in connect mysql');
+            logger.info(err);
+
             connection.end();
             reject(err);
+
+            return;
         }
 
-        console.log('[WARNING] - Connected to mysql');
+        logger.warning('Connected to mysql');
 
-        console.log(`[WARNING] - Executing query: ${_query}`);
+        logger.warning(`Executing query: ${_query}`);
 
 
         connection.query(_query, (error, results) => {
@@ -37,13 +45,13 @@ module.exports = (_query) => new Promise((resolve, reject) => {
                 connection.end();
                 reject(err);
             }
-            console.log('[WARNING] - Query executed with success');
+            logger.warning('Query executed with success');
 
-            console.log('[WARNING] - Closing connection');
+            logger.warning('Closing connection');
             connection.end();
-            console.log('[WARNING] - Connection closed');
+            logger.warning('Connection closed');
 
-            console.log(`[WARNING] - Results: ${JSON.stringify(results)}`);
+            logger.warning(`Results: ${JSON.stringify(results)}`);
             resolve(results);
         });
     });

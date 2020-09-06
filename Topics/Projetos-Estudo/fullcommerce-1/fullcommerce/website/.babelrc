@@ -20,6 +20,7 @@
                     "@Styles": "./src/js/react/styles",
                     "@Types": "./src/js/react/types",
                     "@Constants": "./src/js/constants",
+                    "@Modules": "./src/js/modules",
                     "@Resources": "./src/js/resources",
                     "@Services": "./src/js/services",
                     "@Utils": "./src/js/utils"
