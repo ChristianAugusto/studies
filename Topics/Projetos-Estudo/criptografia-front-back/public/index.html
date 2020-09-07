@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>criptografia-front-back</title>
+    </head>
+    <body>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jsencrypt/2.3.1/jsencrypt.min.js"></script>
+        <script>
+            const crypt = new JSEncrypt({default_key_size: 4096});
+            const publicKey = 'MIIBIzANBgkqhkiG9w0BAQEFAAOCARAAMIIBCwKCAQIAuaQjIIxx/XyCQJGwyNwtGMwu2s+fxJXwzak6XzxPiaWcZ84B2D66mbAv1p3PTP97aHKGVB7FvdGP6mTKVhy0sbWbMGwqEWKmAg+AARgv/0j98TqSCAQ1ezR7s3vXnjxgEvdfNvz0ys8DnCmiudm31hyAUaa3VyJ1pu/mfiKNCv7rS0d/TvlWrSOf1tRxtVEux/EvnKr0PcZE+9Mo/a/eRPxMIdXjjB4YXPibMsx/wZfJ6JUmPqN5pZYDbf9VVDJMJXdk2oxrImsjeXwoL0W6JrACGEytUWI6zgd6GajtFm8L2r3hU9SBBACqCJtYBRBq+DPfDFPg3iFPf6pckHLU4ekCAwEAAQ==';
+
+
+
+            document.addEventListener('DOMContentLoaded', function() {
+                console.log('publicKey', publicKey);
+
+
+                /*
+                    // Generate keypair
+
+                    function generateKeypair() {
+                        crypt = new JSEncrypt({default_key_size: 2056});
+
+                        const publicKeyLocal = crypt.getPublicKey();
+                        const privateKeyLocal = crypt.getPrivateKey();
+
+                        console.log('publicKeyLocal', publicKeyLocal);
+                        console.log('privateKeyLocal', privateKeyLocal);
+                    }
+
+                    generateKeypair();
+                 */
+
+
+                const ajaxBody = {
+                    email: 'sebastiaogeraldosilveira-85@hotmaill.com',
+                    senha: 'qi1um8wg4k',
+                    nome: 'Sebastião Geraldo Silveira',
+                    telefone: '(62) 3525-9251',
+                    cpf: '480.010.998-14',
+                    RG: '43.966.877-3',
+                    endereco: 'Avenida Brasil 985',
+                    cidade: 'Anápolis',
+                    estado: 'GO',
+                    cep: '75124-145',
+                    altura: '1,81',
+                    sangue: 'AB-'
+                };
+
+                /*
+                    Encrypt all the json body throws error in RSA encript because string length.
+                    To resolve that, each field is encript individually.
+                */
+                crypt.setKey(publicKey);
+                Object.entries(ajaxBody).forEach(([key, value]) => ajaxBody[key] = crypt.encrypt(value));
+
+                console.log('ajaxBodyEncrypted', ajaxBody);
+
+                const ajax = new XMLHttpRequest();
+
+                ajax.open('POST', '/');
+                ajax.setRequestHeader('Content-Type', 'application/json');
+
+                ajax.onload = function() {
+                    console.log('ajax.responseText', ajax.responseText);
+                };
+
+                ajax.send(JSON.stringify(ajaxBody));
+            });
+
+        </script>
+    </body>
+</html>
