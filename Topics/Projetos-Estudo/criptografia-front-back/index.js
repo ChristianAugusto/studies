@@ -10,7 +10,7 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const jsonParser = bodyParser.json();
 // const textParser = bodyParser.text();
-const jsEncrypt = new JSEncrypt({default_key_size: 2056});
+const jsEncrypt = new JSEncrypt({default_key_size: 4096});
 
 
 app.get('/', function(req, res) {
