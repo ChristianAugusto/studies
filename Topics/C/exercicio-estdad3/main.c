@@ -12,7 +12,72 @@ typedef struct noA{
     char info;
     struct noA *esq;
     struct noA *dir;
+    boolean esquerda_visitada;
+    boolean direita_visitada;
 } TNoA;
+
+
+typedef struct elemento
+{
+    TNoA* no;
+    struct elemento * prox;
+} Elemento;
+
+
+typedef struct pilha
+{
+    Elemento* topo;
+    int qtd_elementos;
+} Pilha;
+
+
+Pilha* criar_pilha() {
+    Pilha* nova = malloc(sizeof(Pilha));
+
+    nova->topo = NULL;
+    nova->qtd_elementos = 0;
+
+    return nova;
+}
+
+
+Elemento* criar_elemento(TNoA* no) {
+    Elemento* novo = malloc(sizeof(Elemento));
+
+    novo->no = no;
+    novo->prox = NULL;
+
+    return novo;
+}
+
+
+void adicionar_na_pilha(Pilha* pilha, Elemento* novo) {
+    if (pilha->qtd_elementos == 0) {
+        pilha->topo = novo;
+    }
+    else {
+        Elemento* aux = pilha->topo;
+        pilha->topo = novo;
+        novo->prox = aux;
+    }
+
+    pilha->qtd_elementos++;
+}
+
+
+Elemento* remover_da_pilha(Pilha* pilha) {
+    if (pilha->qtd_elementos == 0) {
+        return NULL;
+    }
+
+    Elemento* aux = pilha->topo;
+
+    pilha->topo = pilha->topo->prox;
+
+    pilha->qtd_elementos--;
+
+    return aux;
+}
 
 
 TNoA* criaNo(char ch) {
@@ -21,57 +86,46 @@ TNoA* criaNo(char ch) {
     novo->info = ch;
     novo->esq = NULL;
     novo->dir = NULL;
+    novo->esquerda_visitada = false;
+    novo->direita_visitada = false;
 
     return novo;
 }
 
 
-int get_altura_arvore(TNoA* no, int altura) {
-    int nova_altura = altura;
+void percorrer_ordem_simetrica(TNoA* raiz) {
+    Pilha* pilha = criar_pilha();
 
-    if (no->esq != NULL) {
-        int res = get_altura_arvore(no->esq, altura+1);
+    TNoA* aux1 = raiz;
 
-        if (res > nova_altura) {
-            nova_altura = res;
+    while (1) {
+        if (aux1->esq != NULL && !aux1->esquerda_visitada) {
+            aux1->esquerda_visitada = true;
+            adicionar_na_pilha(pilha, criar_elemento(aux1));
+            aux1 = aux1->esq;
+            continue;
         }
+        aux1->esquerda_visitada = true;
+
+        if (aux1->dir != NULL && !aux1->direita_visitada) {
+            aux1->direita_visitada = true;
+            adicionar_na_pilha(pilha, criar_elemento(aux1));
+            aux1 = aux1->dir;
+            continue;
+        }
+        aux1->direita_visitada = true;
+
+        printf("%c ", aux1->info);
+
+        Elemento* aux2 = remover_da_pilha(pilha);
+        if (aux2 == NULL) {
+            break;
+        }
+
+        aux1 = aux2->no;
     }
 
-    if (no->dir != NULL) {
-        int res = get_altura_arvore(no->dir, altura+1);
-
-        if (res > nova_altura) {
-            nova_altura = res;
-        }
-    }
-
-    return nova_altura;
-}
-
-boolean get_arvore_cheia(TNoA* no, int altura_atual, int altura_arvore) {
-    if (altura_atual != altura_arvore) {
-        if (no->esq == NULL || no->dir == NULL) {
-            return false;
-        }
-    }
-
-    if (no->esq != NULL) {
-        boolean res = get_arvore_cheia(no->esq, altura_atual+1, altura_arvore);
-
-        if (!res) {
-            return res;
-        }
-    }
-
-    if (no->dir != NULL) {
-        boolean res = get_arvore_cheia(no->dir, altura_atual+1, altura_arvore);
-
-        if (!res) {
-            return res;
-        }
-    }
-
-    return true;
+    printf("\n");
 }
 
 
@@ -86,24 +140,14 @@ int main() {
     raiz->esq->esq = criaNo('F');
     raiz->esq->dir = criaNo('G');
 
-
-    printf("get_altura_arvore = %d\n", get_altura_arvore(raiz, 1));
-
-    printf("get_arvore_cheia = %d\n", get_arvore_cheia(raiz, 1, get_altura_arvore(raiz, 1)));
-
-
     raiz->esq->esq->esq = criaNo('H');
     raiz->esq->esq->dir = criaNo('I');
 
     raiz->esq->esq->dir->dir = criaNo('J');
 
 
-    printf("--------------------------------\n");
+    percorrer_ordem_simetrica(raiz);
 
-
-    printf("get_altura_arvore = %d\n", get_altura_arvore(raiz, 1));
-
-    printf("get_arvore_cheia = %d\n", get_arvore_cheia(raiz, 1, get_altura_arvore(raiz, 1)));
 
 
     return 0;
