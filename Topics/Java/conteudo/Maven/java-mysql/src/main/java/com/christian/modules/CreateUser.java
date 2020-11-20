@@ -20,7 +20,7 @@ public class CreateUser {
 
 			System.out.println(query);
 
-			MysqlConnection mysqlConnection = new MysqlConnection("jdbc:mysql://localhost:5500/local-database", "root",
+			MysqlConnection mysqlConnection = new MysqlConnection("jdbc:mysql://localhost:5500/test-database", "root",
 					"12345678");
 
 			connection = mysqlConnection.getConnection(false);

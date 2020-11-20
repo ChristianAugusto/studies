@@ -14,8 +14,7 @@ public class User {
 	private String nationality;
 	private String register;
 	private String roleType;
-	
-	
+
 	public User(ResultSet rs) throws SQLException {
 		this.setId(rs.getLong("id"));
 		this.setName(rs.getString("name"));
@@ -28,7 +27,6 @@ public class User {
 		this.setRegister(rs.getString("register"));
 		this.setRoleType(rs.getString("roleType"));
 	}
-	
 
 	public Long getId() {
 		return id;
@@ -109,8 +107,7 @@ public class User {
 	public void setRoleType(String roleType) {
 		this.roleType = roleType;
 	}
-	
-	
+
 	public String toString() {
 		return String.format("%s - %s", this.getId().toString(), this.getName());
 	}
