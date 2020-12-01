@@ -27,7 +27,7 @@ class DetectFace():
         faces_images_path = []
 
         for i in range(0, len(self.faces)):
-            face_image_path = f'{build_dir}/{i}-faces.{image_extension}'
+            face_image_path = f'{build_dir}/{i}-face.{image_extension}'
             faces_images_path.append(face_image_path)
             cv2.imwrite(face_image_path, self.faces[i])
 
