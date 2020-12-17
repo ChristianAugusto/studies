@@ -1,4 +1,5 @@
 import cv2
+from sklearn.cluster import KMeans
 
 
 
@@ -6,6 +7,7 @@ class DetectFace():
     def __init__(self, image_path:str, cascade_path:str):
         self.clf = cv2.CascadeClassifier(cascade_path)
         self.image = cv2.imread(image_path)
+
 
     def get_faces(self):
         img_gray_scale = cv2.cvtColor(self.image, cv2.COLOR_BGR2GRAY)
@@ -22,6 +24,7 @@ class DetectFace():
         self.faces = faces
 
         return faces
+
 
     def write_images_faces(self, build_dir:str, image_extension:str):
         faces_images_path = []

@@ -19,9 +19,11 @@ class SkinDetector():
         self.YCbCr_image = cv2.cvtColor(self.image, cv2.COLOR_BGR2YCR_CB)
         self.binary_mask_image = self.HSV_image
 
+
     def find_skin(self):
         self.__color_segmentation()
         self.__region_based_segmentation()
+
 
     def __color_segmentation(self):
         lower_HSV_values = np.array([0, 40, 0], dtype = "uint8")
@@ -34,6 +36,7 @@ class SkinDetector():
         mask_HSV = cv2.inRange(self.HSV_image, lower_HSV_values, upper_HSV_values) 
 
         self.binary_mask_image = cv2.add(mask_HSV,mask_YCbCr)
+
 
     def __region_based_segmentation(self):
         image_foreground = cv2.erode(self.binary_mask_image,None,iterations = 3)
