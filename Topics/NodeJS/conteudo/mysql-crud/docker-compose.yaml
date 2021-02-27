@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  digital-queue-mysql:
+    image: mysql:5.7.30
+    container_name: 'digital-queue-mysql'
+    environment:
+      - MYSQL_ROOT_PASSWORD=0123456789
+    ports:
+      - '3306:3306'
+    expose:
+      - 3306
+    volumes:
+      - ./mysql:/mysql
