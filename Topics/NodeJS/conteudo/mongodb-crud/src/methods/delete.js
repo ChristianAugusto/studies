@@ -3,10 +3,9 @@ const mongodb = require('../repositories/mongodb');
 
 
 
-function executeFind(connection, findExpression) {
+function executeDelete(connection, deleteExpression) {
     return new Promise(function(resolve, reject) {
-        connection.collection('collection1').find(findExpression)
-        .toArray(function(error, docs) {
+        connection.collection('collection1').deleteOne(deleteExpression, function(error, docs) {
             if (error) {
                 console.log(error);
                 reject(error);
@@ -18,19 +17,7 @@ function executeFind(connection, findExpression) {
     });
 }
 
-async function findAll() {
-    const conn = await mongodb.createConnection();
-
-    if (conn === null) {
-        throw new Error('Mongodb connection not created');
-    }
-
-    const data = await executeFind(conn, {});
-
-    console.log(data);
-}
-
-async function findOne() {
+async function deleteOne() {
     const conn = await mongodb.createConnection();
 
     if (conn === null) {
@@ -40,7 +27,7 @@ async function findOne() {
 
     const id = '603a7550dc8d87489f326713';
 
-    const data = await executeFind(conn, {_id: new ObjectId(id)});
+    const data = await executeDelete(conn, {_id: new ObjectId(id)});
 
     console.log(data);
 }
@@ -48,6 +35,5 @@ async function findOne() {
 
 
 module.exports = {
-    findAll,
-    findOne
+    deleteOne
 };
