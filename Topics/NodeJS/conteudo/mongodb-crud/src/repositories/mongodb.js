@@ -10,7 +10,7 @@ async function createConnection() {
             useUnifiedTopology: true
         });
 
-        return conn.db('test');
+        return conn;
     } catch (error) {
         console.log(error);
         return null;

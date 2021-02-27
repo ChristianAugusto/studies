@@ -25,9 +25,11 @@ async function findAll() {
         throw new Error('Mongodb connection not created');
     }
 
-    const data = await executeFind(conn, {});
+    const data = await executeFind(conn.db('test'), {});
 
     console.log(data);
+
+    conn.close();
 }
 
 async function findOne() {
@@ -40,9 +42,11 @@ async function findOne() {
 
     const id = '603a7550dc8d87489f326713';
 
-    const data = await executeFind(conn, {_id: new ObjectId(id)});
+    const data = await executeFind(conn.db('test'), {_id: new ObjectId(id)});
 
     console.log(data);
+
+    conn.close();
 }
 
 

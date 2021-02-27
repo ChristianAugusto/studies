@@ -27,9 +27,11 @@ async function deleteOne() {
 
     const id = '603a7550dc8d87489f326713';
 
-    const data = await executeDelete(conn, {_id: new ObjectId(id)});
+    const data = await executeDelete(conn.db('test'), {_id: new ObjectId(id)});
 
     console.log(data);
+
+    conn.close();
 }
 
 

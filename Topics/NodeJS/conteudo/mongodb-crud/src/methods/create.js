@@ -35,13 +35,15 @@ async function create() {
         'c': 'c'
     }];
 
-    const result = await executeCreate(conn, values);
+    const result = await executeCreate(conn.db('test'), values);
 
     console.log(result);
 
     if (result.insertedCount != values.length) {
         console.log('Error in insert one or more values');
     }
+
+    conn.close();
 }
 
 

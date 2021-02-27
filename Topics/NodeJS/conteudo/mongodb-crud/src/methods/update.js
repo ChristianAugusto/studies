@@ -31,12 +31,14 @@ async function update() {
 
 
 
-    const result = await executeUpdate(conn, '603a7550dc8d87489f326713', {
+    const result = await executeUpdate(conn.db('test'), '603a7550dc8d87489f326713', {
         a: 'teste',
         d: 'd'
     });
 
     console.log(result);
+
+    conn.close();
 }
 
 
