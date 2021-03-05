@@ -9,6 +9,6 @@
     "author": "Christian Augusto Martins dos Santos Barros (christianbetta@gmail.com)",
     "license": "MIT",
     "dependencies": {
-        "mysql": "2.18.1"
+        "oracledb": "5.1.0"
     }
 }

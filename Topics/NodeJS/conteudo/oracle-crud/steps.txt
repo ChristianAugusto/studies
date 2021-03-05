@@ -1,0 +1,28 @@
+sudo docker container rm -f oracle-database-local mongodb-local
+sudo docker-compose up -d
+sudo docker container exec -it oracle-database-local bash
+sqlplus / as sysdba
+alter session set "_ORACLE_SCRIPT"=true;
+CREATE USER christian IDENTIFIED BY marte123;
+ALTER USER christian QUOTA unlimited ON SYSTEM;
+GRANT CREATE SESSION, CONNECT, RESOURCE, DBA TO christian;
+GRANT ALL PRIVILEGES TO christian;
+exit
+
+
+
+sudo docker-compose up -d
+sudo docker container exec -it oracle-database-local bash
+sqlplus
+
+christian
+marte123
+
+CREATE TABLE test_table (
+    id NUMBER GENERATED ALWAYS as IDENTITY(START with 1 INCREMENT by 1),
+    name VARCHAR(100) NOT NULL
+);
+
+INSERT INTO test_table (name) VALUES ('pamonha');
+INSERT INTO test_table (name) VALUES ('doce de coco');
+select * from test_table;

@@ -1,0 +1,24 @@
+version: '3.8'
+services:
+  mongodb:
+    image: 'mongo:4.4.4'
+    container_name: 'mongodb-local'
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_PASSWORD=12345678
+    ports:
+      - '27017-27019:27017-27019'
+    expose:
+      - '27017-27019'
+    volumes:
+      - ./mongofiles/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo-js:ro
+      - ./mongofiles/data:/data/db
+  oracle-database:
+    image: 'store/oracle/database-enterprise:12.2.0.1'
+    container_name: 'oracle-database-local'
+    ports:
+      - '1521:1521'
+      - '5500:5500'
+    volumes:
+      - ./oracledbfiles/setup-scripts:/opt/oracle/scripts/setup
+      - ./oracledbfiles/dump:/opt/oracle/dump
