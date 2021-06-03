@@ -46,3 +46,15 @@ def retorno3
 end
 
 puts retorno3
+
+puts '----------------'
+
+def foo
+    puts 'foo'
+end
+
+def test1 function
+    function
+end
+
+test1 foo
