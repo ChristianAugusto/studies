@@ -1,0 +1,56 @@
+{
+	"info": {
+		"_postman_id": "1480dddd-b1d0-4e5d-a9b3-320858324082",
+		"name": "myfirstapi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/first",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"first"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"foo\": \"foo\",\n    \"pamonha\": \"pamonha\",\n    \"doceDeCoco\": [\n        1,\n        2,\n        3,\n        {},\n        [],\n        \"dasdasdas\"\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/first",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"first"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
