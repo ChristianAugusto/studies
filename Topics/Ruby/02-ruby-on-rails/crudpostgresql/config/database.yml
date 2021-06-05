@@ -1,0 +1,18 @@
+default: &default
+  host: localhost
+  port: 5432
+  username: postgres
+  password: 12345678
+  database: contacts_system
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+production:
+  <<: *default
