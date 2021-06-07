@@ -23,7 +23,7 @@ Things you may want to cover:
 
 - ...
 
-## Build command
+## Build repo command
 
 This project has builded with the following command:
 

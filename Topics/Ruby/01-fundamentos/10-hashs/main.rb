@@ -39,3 +39,12 @@ puts capitais2.size # tamanho do hash
 puts '------------------------'
 
 puts capitais2.empty? # o hash está vazio?
+
+puts '------------------------'
+
+puts 'Other way'
+
+hash2 = { "nome": "add" }
+
+puts hash2
+puts hash2[:nome]
