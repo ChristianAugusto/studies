@@ -20,7 +20,7 @@ class PersonController < ApplicationController
   def post
     @person = Person.new(person_params)
 
-    unless cpf_valid?(@person.cpf)
+    unless CpfUtils.cpf_valid?(@person.cpf)
       raise Exception.new 'cpf not valid'
     end
 

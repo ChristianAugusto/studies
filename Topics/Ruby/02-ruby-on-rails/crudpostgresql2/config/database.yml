@@ -3,16 +3,18 @@ default: &default
   port: 5432
   username: postgres
   password: 12345678
-  database: contacts_system
   adapter: postgresql
   encoding: unicode
   pool: 5
 
 development:
   <<: *default
+  database: contacts_system_dev
 
 test:
   <<: *default
+  database: contacts_system_test
 
 production:
   <<: *default
+  database: contacts_system_prod

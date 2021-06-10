@@ -8,5 +8,6 @@ class CreatePeople < ActiveRecord::Migration[5.2]
 
       t.timestamps
     end
+    add_index :people, :cpf, unique: true
   end
 end
