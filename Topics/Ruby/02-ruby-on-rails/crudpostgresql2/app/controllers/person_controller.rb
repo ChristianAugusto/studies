@@ -1,3 +1,5 @@
+require './app/utils/cpf.rb'
+
 class PersonController < ApplicationController
   before_action :set_user, only: [:get_by_id, :update, :delete]
 
@@ -17,6 +19,11 @@ class PersonController < ApplicationController
   # normalmente esse metodo chamace create
   def post
     @person = Person.new(person_params)
+
+    unless cpf_valid?(@person.cpf)
+      raise Exception.new 'cpf not valid'
+    end
+
     if @person.save
       render json: @person
     else
