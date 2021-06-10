@@ -27,11 +27,11 @@ public class CreateUser {
 
 			stmt = connection.prepareStatement(query);
 
-			stmt.setString(1, "Christian Augusto Martins dos Santos Barros");
-			stmt.setString(2, "christianbetta@gmail.com");
+			stmt.setString(1, "Vicente Bernardo Henry Cardoso");
+			stmt.setString(2, "vicentebernardohenry@inepar.com.br");
 			stmt.setString(3, "12345678");
-			stmt.setString(4, "+55 (11) 99311-8482");
-			stmt.setString(5, "508.569.378-78");
+			stmt.setString(4, "+55 (98) 99860-3329");
+			stmt.setString(5, "469.334.073-14");
 			stmt.setString(6, "cpf");
 			stmt.setString(7, "Brasil");
 			stmt.setString(8, "2020-11-20 21:15:53");
