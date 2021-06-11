@@ -21,18 +21,6 @@ RSpec.describe PeopleController, type: :controller do
       ).to eq(ENV['API_PEOPLE_LIMIT'].to_i())
     end
 
-    it 'validate non existing offset' do
-      expect(
-        PeopleController.index_offset({})
-      ).to eq(0)
-    end
-
-    it 'validate existing offset' do
-      expect(
-        PeopleController.index_offset({'offset' => '2'})
-      ).to eq(2)
-    end
-
     it 'returns success status and empty list' do
       get(:index, params: {limit: ENV['API_PEOPLE_LIMIT'], offset: '0'})
 
@@ -78,14 +66,6 @@ RSpec.describe PeopleController, type: :controller do
     end
 
     context 'invalid request body' do
-      it 'invalid cpf' do
-        person = Person.new(name: 'Kaique Ricardo da Paz', email: 'kaique.ricardo.paz@gmail.com', cpf: '88343470053', rg: '49.502.455-7')
-
-        expect {
-          post :create, params: {person: {name: person[:name], email: person[:email], cpf: person[:cpf], rg: person[:rg]}}
-        }.to raise_exception(InvalidCpfException)
-      end
-
       it 'duplicated cpf' do
         person1 = Person.create(name: 'Tiago Nicolas da Rocha', email: 'evelynvalentinaluciasantos-83@gmx.com', cpf: '70101273525', rg: '10.880.136-6')
 
@@ -111,18 +91,6 @@ RSpec.describe PeopleController, type: :controller do
 
         updated_person = JSON.parse(response.body)
         expect(updated_person['name']).to eq(new_name)
-      end
-    end
-
-    context 'invalid request body' do
-      it 'invalid cpf' do
-        person1 = Person.create(name: 'Tiago Nicolas da Rocha', email: 'evelynvalentinaluciasantos-83@gmx.com', cpf: '70101273525', rg: '10.880.136-6')
-
-        new_cpf = '88343470053'
-
-        expect {
-          put :update, params: {person: {cpf: new_cpf}, id: person1.id()}
-        }.to raise_exception(InvalidCpfException)
       end
     end
   end

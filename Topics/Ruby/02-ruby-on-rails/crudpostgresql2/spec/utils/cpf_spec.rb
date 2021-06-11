@@ -13,7 +13,7 @@ RSpec.describe do
     end
 
     it 'false cases' do
-      for deny_cpf in CpfUtils.deny_list
+      for deny_cpf in CpfUtils.DENY_LIST
         expect(CpfUtils.cpf_valid?(deny_cpf)).to eq(false)
       end
 

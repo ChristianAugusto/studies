@@ -1,12 +1,11 @@
 require './app/utils/cpf.rb'
-require './app/utils/custom_exceptions.rb'
 
 class PeopleController < ApplicationController
   before_action :set_user, only: [:show, :update, :destroy]
 
   def index
     limit = self.class.index_limit(params)
-    offset = self.class.index_offset(params)
+    offset = params['offset'].to_i
 
     people = Person.all.limit(limit).offset(offset).order('id ASC')
     render json: people
@@ -19,10 +18,6 @@ class PeopleController < ApplicationController
   def create
     @person = Person.new(person_params)
 
-    unless CpfUtils.cpf_valid?(@person.cpf)
-      raise InvalidCpfException.new
-    end
-
     if @person.save
       render json: @person
     else
@@ -31,10 +26,6 @@ class PeopleController < ApplicationController
   end
 
   def update
-    if (person_params['cpf'] != nil and not CpfUtils.cpf_valid?(person_params['cpf']))
-      raise InvalidCpfException.new
-    end
-
     @person.update(person_params)
     render json: @person
   end
@@ -48,25 +39,13 @@ class PeopleController < ApplicationController
   def self.index_limit(params)
     api_people_limit = ENV['API_PEOPLE_LIMIT'].to_i
 
-    if params['limit'] == nil
-      return api_people_limit
-    end
+    return api_people_limit if (params['limit'] == nil)
 
     params_limit = params['limit'].to_i
 
-    if params_limit > api_people_limit
-      return api_people_limit
-    end
+    return api_people_limit if (params_limit > api_people_limit)
 
     return params_limit
-  end
-
-  def self.index_offset(params)
-    if params['offset'] == nil
-      return 0
-    end
-
-    return params['offset'].to_i
   end
 
   private
