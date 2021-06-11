@@ -48,24 +48,36 @@ bin/rails g model person name:string email:string cpf:string:uniq rg:string
 3.
 
 ```
+bin/rails generate controller people
+```
+
+4.
+
+```
 bin/rails db:migrate (se já existir a tabela, vai dar erro)
 ```
 
-4. Install rspec e rspec-rails
+5. Install rspec e rspec-rails
 
-5.
+6.
 
 ```
 bin/rails generate rspec:install
 ```
 
-6.
+7.
 
 ```
 bin/rails generate rspec:model person
 ```
 
-7.
+8.
+
+```
+bin/rails generate rspec:controller people
+```
+
+9.
 
 ```
 bin/rake spec
