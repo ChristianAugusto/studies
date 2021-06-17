@@ -3,5 +3,6 @@ Trocar versão Linux:
 
     sudo update-java-alternatives --set /path/to/java/version
     
+    sudo add-apt-repository ppa:openjdk-r/ppa # ubuntu 18.04
     sudo apt install openjdk-14-jdk-headless
     sudo apt install openjdk-11-jdk-headless
