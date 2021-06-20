@@ -1,3 +1,4 @@
+# A simple animal
 class Animal
   def pular
     puts 'Toing! tóim! bóim! póim!'
@@ -8,6 +9,7 @@ class Animal
   end
 end
 
+# A simple dog
 class Cachorro < Animal
   def latir
     puts 'Au Au'

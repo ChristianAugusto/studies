@@ -20,7 +20,8 @@ class Carro
     "marca:#{@marca} modelo:#{@modelo} cor:#{@cor} tanque:#{@tanque} escrita:#{@escrita}"
   end
 
-  def self.carros_criados # self. indica método de classe
+  # self. indica método de classe
+  def self.carros_criados
     @@carros_criados
   end
 end

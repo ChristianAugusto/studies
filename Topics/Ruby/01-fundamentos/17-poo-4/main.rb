@@ -1,4 +1,4 @@
-require_relative './animal.rb'
+require_relative './animal'
 
 animal = Animal.new
 

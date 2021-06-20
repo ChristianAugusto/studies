@@ -9,7 +9,7 @@ def chama_bloco
 end
 
 # Os blocos de código podem aparecer apenas no código adjacente a uma chamada de método
-chama_bloco {puts 'Dentro do bloco'}
+chama_bloco { puts 'Dentro do bloco' }
 
 puts '-----------------------'
 
@@ -17,4 +17,4 @@ def chama_bloco2
   yield('ola', 99)
 end
 
-chama_bloco2 {|str, num| puts str + ' ' + num.to_s}
+chama_bloco2 { |str, num| puts str + ' ' + num.to_s }

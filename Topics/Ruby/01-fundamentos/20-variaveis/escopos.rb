@@ -1,21 +1,18 @@
 outra = 20
 
 def foo
-    local = 'abc'
+  local = 'abc'
 
-    puts local
-    # puts outra # Não consegue enxergar
+  puts local
+  # puts outra # Não consegue enxergar
 
-
-    $global = 1
+  $global = 1
 end
 
 foo
 
 puts $global
 # puts local # Não consegue enxergar
-
-
 
 class Teste
   @@b = 20
@@ -24,12 +21,10 @@ class Teste
     @a = 4
   end
 
-  def a
-    return @a
-  end
+  attr_reader :a
 
   def b
-    return @@b
+    @@b
   end
 end
 

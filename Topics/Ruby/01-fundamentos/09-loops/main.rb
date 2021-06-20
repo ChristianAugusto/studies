@@ -1,12 +1,12 @@
-puts 'for:'
+puts 'each:'
 
-fruits = ['Maçã', 'Uva', 'Morango']
+fruits = %w[Maçã Uva Morango]
 
-for fruit in fruits
+fruits.each do |fruit|
   puts fruit
 end
 
-for i in 0..5
+(0..5).each do |i|
   puts "Value of local variable is #{i}"
 end
 
@@ -26,7 +26,7 @@ puts 'until:'
 
 i = 0
 
-until i==5
+until i == 5
   puts i
   i += 1
 end

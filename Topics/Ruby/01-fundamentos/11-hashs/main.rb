@@ -1,4 +1,4 @@
-capitais1 = Hash.new # hash vazio
+capitais1 = {} # hash vazio
 
 puts capitais1
 
@@ -46,7 +46,7 @@ puts '------------------------'
 
 puts 'Other way'
 
-hash2 = { "nome" => "add" }
+hash2 = { 'nome' => 'add' }
 
 puts hash2
 # puts hash2[:nome] # Não vai funcionar para chaves str

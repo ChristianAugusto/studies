@@ -2,7 +2,7 @@ puts 'Ler arquivo:'
 
 file1 = File.open './files/read.txt', 'r' # coloca o arquivo inteiro na memória?
 
-for line in file1
+file1.each do |line|
   puts line
 end
 

@@ -1,3 +1,3 @@
 a = 1
 
-if a == 1 then puts 'oi' end
+puts 'oi' if a == 1

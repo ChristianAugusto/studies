@@ -1,5 +1,3 @@
 bool = false
 
-unless bool
-  puts false
-end
+puts false unless bool
