@@ -19,7 +19,7 @@ func main() {
 	fmt.Printf("delta = %v\n", delta)
 
 	if delta < 0 {
-		fmt.Println("Não existe raízes reais")
+		fmt.Println("Não existem raízes reais")
 	} else if delta == 0 {
 		var x float64 = -b / (2 * a)
 
