@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+  local-python:
+    container_name: local-python
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    image: local-python:latest
+    command: 'bash docker/command.sh'
+    volumes:
+      - .:/local-python
