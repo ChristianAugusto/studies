@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  rascunho-golang:
+    container_name: rascunho-golang
+    build: .
+    image: rascunho-golang:latest
+    command: sh command.sh
+    volumes:
+      - ./calculo-numerico:/rascunho-golang/calculo-numerico

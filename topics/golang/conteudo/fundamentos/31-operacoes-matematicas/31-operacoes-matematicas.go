@@ -7,8 +7,8 @@ import (
 
 func main() {
 
-	a := 3
-	b := 2
+	var a float64 = 3
+	var b float64 = 2
 
 	fmt.Println("Soma =>", a+b)
 	fmt.Println("Subtração =>", a-b)
@@ -17,8 +17,8 @@ func main() {
 	fmt.Println("Módulo =>", a%b)
 
 	// Math
-	fmt.Println("Maior =>", math.Max(float64(a), float64(b)))
-	fmt.Println("Menor =>", math.Min(float64(a), float64(b)))
-	fmt.Println("Exponenciação =>", math.Pow(float64(a), float64(b)))
-
+	fmt.Println("Maior =>", math.Max(a, b))
+	fmt.Println("Menor =>", math.Min(a, b))
+	fmt.Println("Exponenciação =>", math.Pow(a, b))
+	fmt.Println("Radiciação =>", math.Sqrt(c))
 }
