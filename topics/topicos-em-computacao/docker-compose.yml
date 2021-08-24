@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  topicos-em-computacao:
+    container_name: topicos-em-computacao
+    build: .
+    image: topicos-em-computacao:latest
+    command: bash command.sh
+    volumes:
+      - ./exercicios-23-08-2021:/topicos-em-computacao/exercicios-23-08-2021
