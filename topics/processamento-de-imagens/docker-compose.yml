@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  processamento-de-imagens:
+    container_name: processamento-de-imagens
+    build: .
+    image: processamento-de-imagens:latest
+    command: sh command.sh
+    # volumes:
+    #   - ./01-exercicio:/processamento-de-imagens/01-exercicio
