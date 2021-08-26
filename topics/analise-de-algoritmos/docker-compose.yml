@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  analise-de-algoritmos:
+    container_name: analise-de-algoritmos
+    build: .
+    image: analise-de-algoritmos:latest
+    command: bash command.sh
+    volumes:
+      - ./exercicio-1:/analise-de-algoritmos/exercicio-1
