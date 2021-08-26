@@ -4,6 +4,6 @@ services:
     container_name: processamento-de-imagens
     build: .
     image: processamento-de-imagens:latest
-    command: sh command.sh
-    # volumes:
-    #   - ./01-exercicio:/processamento-de-imagens/01-exercicio
+    command: /bin/bash command.sh
+    volumes:
+      - ./aula-03:/processamento-de-imagens/aula-03

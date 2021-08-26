@@ -1,18 +1,14 @@
-## Executar programa go:
+# Anotações
+
+## Executar programa python:
 
 ```
-go run filename.go
+python arquivo.py
 ```
 
-## Compilar programa go
+## Formatar código python padrão pep
 
 ```
-go build filename.go
-./filename
-```
-
-## Formatar programa go
-
-```
-go fmt path/to/your/package
+autopep8 your_script.py    # dry-run, only print
+autopep8 -iv your_script.py # replace content
 ```

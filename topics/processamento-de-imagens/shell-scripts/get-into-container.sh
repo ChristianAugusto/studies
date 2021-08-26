@@ -1,1 +1,1 @@
-docker exec -it processamento-de-imagens /bin/sh
+docker exec -it processamento-de-imagens /bin/bash
