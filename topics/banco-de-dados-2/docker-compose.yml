@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  banco-de-dados-2:
+    container_name: banco-de-dados-2
+    build: .
+    image: banco-de-dados-2:latest
+    command: bash command.sh
+    volumes:
+      - ./populate-database:/banco-de-dados-2/populate-database
