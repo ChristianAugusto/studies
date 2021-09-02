@@ -7,3 +7,4 @@ services:
     command: /bin/bash command.sh
     volumes:
       - ./aula-03:/processamento-de-imagens/aula-03
+      - ./aula-01-09-2021:/processamento-de-imagens/aula-01-09-2021
