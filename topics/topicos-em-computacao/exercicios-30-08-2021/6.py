@@ -1,0 +1,25 @@
+"""
+Faça um programa, com uma função que necessite de três argumentos, e que forneça a soma desses três argumentos.
+"""
+
+
+def impares(n):
+    numero = 0
+
+    while n > 0:
+        if not (numero % 2 == 0):
+            print(numero)
+            n -= 1
+
+        numero += 1
+
+
+def main():
+    n = int(input('Digite o número n: '))
+    if n <= 0:
+        raise Exception('Entrada para o número n inválida')
+
+    impares(n)
+
+
+main()
