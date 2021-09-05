@@ -15,7 +15,7 @@ def person_tuple(person):
         f"'{person['endereco'].split(' ')[0]}'",
         f"'{person['endereco'].split(' ')[1]}'",
         f"'{person['numero']}'",
-        f"'{'NULL'}'",
+        f"NULL",
         f"'{person['bairro']}'",
         f"'{person['cep']}'",
         f"'{person['cidade']}'",
