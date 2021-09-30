@@ -22,9 +22,9 @@ def histograma_equalizado(nk, l, mn):
 
     for i in range(0, 16):
         result = nk[i] / mn
-        acc += (result) * (l - 1) # Função de distribuição cumulativa
+        acc += (result) * (l - 1)  # Função de distribuição cumulativa
 
-        s.append(round(acc)) # arredondamento acumulador
+        s.append(round(acc))  # arredondamento acumulador
         p.append(result)
 
     plt.bar(s, p)
@@ -55,7 +55,6 @@ def main():
 
     # histograma(rk, nk, mn)
     # histograma_equalizado(nk, l, mn)
-
 
 
 main()
