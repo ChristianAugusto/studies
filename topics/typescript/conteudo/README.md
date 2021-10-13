@@ -1,11 +1,6 @@
 # Typescript - Conteúdo
 
-## Como transpilar?
+## Como criar arquivo config typescript
 ```
-npx tsc index.ts
-```
-
-## Como executar?
-```
-npx ts-node --files index.ts
+npx tsc --init
 ```
