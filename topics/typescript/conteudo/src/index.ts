@@ -1,5 +1,7 @@
+import types from "./topics/01-types";
+
 function main() {
-  console.log("oi");
+  types();
 }
 
 main();
