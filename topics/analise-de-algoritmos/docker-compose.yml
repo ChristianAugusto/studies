@@ -8,3 +8,4 @@ services:
     volumes:
       - ./exercicio-1:/analise-de-algoritmos/exercicio-1
       - ./lista-01-ex-01:/analise-de-algoritmos/lista-01-ex-01
+      - ./lista-01-ex-05:/analise-de-algoritmos/lista-01-ex-05
