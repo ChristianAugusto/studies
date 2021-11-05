@@ -1,11 +1,9 @@
 version: '3.8'
 services:
-  local-golang:
-    container_name: local-golang
-    build:
-      context: .
-      dockerfile: docker/Dockerfile
-    image: local-golang:latest
-    command: 'sh docker/command.sh'
+  conteudo-golang:
+    container_name: conteudo-golang
+    build: .
+    image: conteudo-golang:latest
+    command: 'sh shell-scripts/command.sh'
     volumes:
-      - .:/local-golang
+      - .:/conteudo-golang
