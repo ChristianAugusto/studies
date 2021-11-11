@@ -10,3 +10,15 @@ go run filename.go
 go build filename.go
 ./filename
 ```
+
+## Executar testes programa go
+
+```
+go test **/*.go
+```
+
+ou
+
+```
+go test pacote
+```
