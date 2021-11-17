@@ -5,6 +5,6 @@ import (
 	"olamundo/ola"
 )
 
-func main()  {
+func main() {
 	fmt.Println(ola.Executar())
 }
