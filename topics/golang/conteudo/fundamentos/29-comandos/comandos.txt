@@ -1,2 +1,0 @@
-go build {file name}.go     <- gera o executável do programa em go
-go run {file name}.go     <- executa o programa em go sem gerar executável
