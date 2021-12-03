@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  lua-conteudo:
+    container_name: lua-conteudo
+    build: .
+    image: lua-conteudo:latest
+    command: bash command.sh
+    volumes:
+      - ./fundamentos:/lua-conteudo/fundamentos

@@ -6,6 +6,6 @@ services:
     image: topicos-em-computacao:latest
     command: bash command.sh
     volumes:
-      - ./exercicios-30-08-2021:/topicos-em-computacao/exercicios-23-08-2021
+      - ./exercicios-23-08-2021:/topicos-em-computacao/exercicios-23-08-2021
       - ./exercicios-30-08-2021:/topicos-em-computacao/exercicios-30-08-2021
       - ./exercicios-06-09-2021:/topicos-em-computacao/exercicios-06-09-2021
