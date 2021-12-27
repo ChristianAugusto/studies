@@ -8,7 +8,8 @@
         }
       }
     ],
-    "@babel/preset-typescript"
+    "@babel/preset-typescript",
+    "minify"
   ],
   "plugins": [
     [
@@ -16,7 +17,8 @@
       {
         "root": ["."],
         "alias": {
-          "@constants": "./src/constants"
+          "@constants": "./src/constants",
+          "@tests": "./src/tests"
         }
       }
     ]
