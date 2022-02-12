@@ -4,28 +4,28 @@ import (
 	"fmt"
 )
 
-type Foo struct{
-    A string
+type Foo struct {
+	A string
 }
 
 func main() {
-    fmt.Println(Foo{})
-    fmt.Println(Foo{A:"a"})
+	fmt.Println(Foo{})
+	fmt.Println(Foo{A: "a"})
 
-    fmt.Println(Foo{} == Foo{})
-    fmt.Printf("Foo{A:\"a\"} == Foo{A:\"b\"} = %v\n", Foo{A:"a"} == Foo{A:"b"})
-    fmt.Println(&Foo{} == &Foo{})
+	fmt.Println(Foo{} == Foo{})
+	fmt.Printf("Foo{A:\"a\"} == Foo{A:\"b\"} = %v\n", Foo{A: "a"} == Foo{A: "b"})
+	fmt.Println(&Foo{} == &Foo{})
 
-    if (Foo{}) == (Foo{}) {
-        fmt.Println(true)
-    } else {
-        fmt.Println(true)
-    }
+	if (Foo{}) == (Foo{}) {
+		fmt.Println(true)
+	} else {
+		fmt.Println(true)
+	}
 
-    fmt.Println("----------------")
+	fmt.Println("----------------")
 
-    foo := &Foo{}
-    foo2 := foo
+	foo := &Foo{}
+	foo2 := foo
 
-    fmt.Println(foo == foo2)
+	fmt.Println(foo == foo2)
 }
