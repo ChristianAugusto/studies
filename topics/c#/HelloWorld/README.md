@@ -1,5 +1,10 @@
 # Hello World - C#
 
+## Command to build this project
+```
+dotnet new console
+```
+
 ## Run
 ```
 dotnet run Program.cs

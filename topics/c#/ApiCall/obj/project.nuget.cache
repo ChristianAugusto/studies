@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "XpTTi+PF7tR81euay0WvZ1MqvGYGdCRtYzPSxbN7kUtPNQCNfr63h9xrIoWVe/QdI2Yn5vpAxffeNGsKAN2vXw==",
+  "success": true,
+  "projectFilePath": "/home/christianbarros/estudos/studies/topics/c#/ApiCall/ApiCall.csproj",
+  "expectedPackageFiles": [
+    "/home/christianbarros/.nuget/packages/restsharp/107.3.0/restsharp.107.3.0.nupkg.sha512"
+  ],
+  "logs": []
+}

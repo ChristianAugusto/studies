@@ -1,0 +1,17 @@
+/home/christianbarros/estudos/studies/topics/c#/ApiCall/bin/Debug/net6.0/ApiCall
+/home/christianbarros/estudos/studies/topics/c#/ApiCall/bin/Debug/net6.0/ApiCall.deps.json
+/home/christianbarros/estudos/studies/topics/c#/ApiCall/bin/Debug/net6.0/ApiCall.runtimeconfig.json
+/home/christianbarros/estudos/studies/topics/c#/ApiCall/bin/Debug/net6.0/ApiCall.dll
+/home/christianbarros/estudos/studies/topics/c#/ApiCall/bin/Debug/net6.0/ApiCall.pdb
+/home/christianbarros/estudos/studies/topics/c#/ApiCall/obj/Debug/net6.0/ApiCall.csproj.AssemblyReference.cache
+/home/christianbarros/estudos/studies/topics/c#/ApiCall/obj/Debug/net6.0/ApiCall.GeneratedMSBuildEditorConfig.editorconfig
+/home/christianbarros/estudos/studies/topics/c#/ApiCall/obj/Debug/net6.0/ApiCall.AssemblyInfoInputs.cache
+/home/christianbarros/estudos/studies/topics/c#/ApiCall/obj/Debug/net6.0/ApiCall.AssemblyInfo.cs
+/home/christianbarros/estudos/studies/topics/c#/ApiCall/obj/Debug/net6.0/ApiCall.csproj.CoreCompileInputs.cache
+/home/christianbarros/estudos/studies/topics/c#/ApiCall/obj/Debug/net6.0/ApiCall.dll
+/home/christianbarros/estudos/studies/topics/c#/ApiCall/obj/Debug/net6.0/refint/ApiCall.dll
+/home/christianbarros/estudos/studies/topics/c#/ApiCall/obj/Debug/net6.0/ApiCall.pdb
+/home/christianbarros/estudos/studies/topics/c#/ApiCall/obj/Debug/net6.0/ApiCall.genruntimeconfig.cache
+/home/christianbarros/estudos/studies/topics/c#/ApiCall/obj/Debug/net6.0/ref/ApiCall.dll
+/home/christianbarros/estudos/studies/topics/c#/ApiCall/bin/Debug/net6.0/RestSharp.dll
+/home/christianbarros/estudos/studies/topics/c#/ApiCall/obj/Debug/net6.0/ApiCall.csproj.CopyComplete
