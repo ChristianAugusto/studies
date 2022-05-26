@@ -1,0 +1,7 @@
+# localstack
+
+## Start
+```
+make start
+```
+

@@ -1,0 +1,31 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: app
+    build: .
+    depends_on:
+      - localstacktest
+    volumes:
+      - .:/app
+    networks:
+      - localstacktest-network
+
+  localstacktest:
+    container_name: localstacktest
+    image: localstack/localstack
+    ports:
+      - "4566:4566"
+    environment:
+      - DATA_DIR=/tmp/localstack/data
+      - LOCALSTACK_HOSTNAME=localhost
+      - DEBUG=1
+    volumes:
+      - .:/app
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - localstacktest-network
+
+networks:
+  localstacktest-network:
+    driver: bridge
